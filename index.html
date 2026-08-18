@@ -1,0 +1,3031 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IELTS Academic Grammar Lab: Sentence Boundaries (4.0 to 7.0)</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ielts: {
+              navy: '#0A2540',
+              blue: '#0066CC',
+              crimson: '#D91A2A',
+              slate: '#4A5568',
+              lightBlue: '#E6F0FA',
+              emerald: '#10B981',
+              amber: '#F59E0B'
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Custom CSS for focus ring, print styles and interactive states */
+    .focus-ring:focus-visible {
+      outline: 3px solid #0066CC;
+      outline-offset: 2px;
+    }
+    
+    /* Scrollbar Styling */
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #F7FAFC;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #CBD5E0;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #A0AEC0;
+    }
+
+    /* Print Styles */
+    @media print {
+      body {
+        background: white !important;
+        color: black !important;
+        font-size: 11pt;
+      }
+      .no-print {
+        display: none !important;
+      }
+      .print-only {
+        display: block !important;
+      }
+      .locked-section {
+        opacity: 1 !important;
+        pointer-events: auto !important;
+        filter: none !important;
+      }
+      .locked-overlay {
+        display: none !important;
+      }
+      .card {
+        border: 1px solid #E2E8F0 !important;
+        box-shadow: none !important;
+        page-break-inside: avoid;
+      }
+      h1, h2, h3 {
+        page-break-after: avoid;
+      }
+    }
+
+    .locked-section {
+      filter: grayscale(10%) blur(0.5px);
+      position: relative;
+    }
+    .locked-overlay {
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(5px);
+    }
+    
+    /* Word highlighting interactive styling */
+    .clickable-word {
+      transition: all 0.2s ease;
+      cursor: pointer;
+      display: inline-block;
+      padding: 0.125rem 0.25rem;
+      border-radius: 0.25rem;
+    }
+    .clickable-word:hover:not(.disabled) {
+      background-color: #E6F0FA;
+      color: #0A2540;
+    }
+    .clickable-word.selected {
+      background-color: #0066CC;
+      color: white;
+    }
+    .clickable-word.correct-select {
+      background-color: #10B981;
+      color: white;
+    }
+    .clickable-word.incorrect-select {
+      background-color: #D91A2A;
+      color: white;
+    }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-900 font-sans min-h-screen flex flex-col antialiased">
+
+  <!-- TOP HEADER (no-print) -->
+  <header class="no-print bg-ielts-navy text-white py-4 px-6 shadow-md">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <a href="../index.html" class="text-white hover:text-ielts-blue transition focus-ring p-1 rounded" aria-label="Back to main dashboard">
+          <i class="fa-solid fa-arrow-left text-xl"></i>
+        </a>
+        <i class="fa-solid fa-graduation-cap text-3xl text-ielts-blue"></i>
+        <div>
+          <h1 class="text-xl font-bold tracking-tight">IELTS Academic Grammar Lab</h1>
+          <p class="text-xs text-gray-300">Sentence Boundaries & Productive Accuracy (Band 4.0 &rarr; 7.0)</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-3">
+        <button id="reset-lab-btn" class="bg-slate-700 hover:bg-slate-600 text-white font-medium text-sm py-2 px-4 rounded transition focus-ring" aria-label="Reset all progress and diagnostics">
+          <i class="fa-solid fa-rotate-left mr-2"></i>Reset Lab
+        </button>
+        <button onclick="window.print();" class="bg-ielts-blue hover:bg-blue-700 text-white font-medium text-sm py-2 px-4 rounded transition focus-ring" aria-label="Print this grammar webpage and answer key">
+          <i class="fa-solid fa-print mr-2"></i>Print / Save PDF
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- IELTS DISCLAIMER ACCORDING TO GUARDRAILS -->
+  <div class="bg-slate-100 border-b border-gray-200 py-2 px-6 text-center text-xs text-slate-600">
+    <div class="max-w-7xl mx-auto">
+      <i class="fa-solid fa-circle-info mr-1 text-slate-500"></i>
+      Independent practice resource — not an official IELTS product or score. Calibrated to Grammatical Range and Accuracy (GRA) criteria.
+    </div>
+  </div>
+
+  <main class="flex-grow max-w-7xl w-full mx-auto p-4 sm:p-6 lg:p-8 space-y-8">
+    
+    <!-- 1. HERO SECTION -->
+    <section class="bg-white rounded-xl shadow-sm border border-gray-200 p-6 sm:p-8 flex flex-col md:flex-row gap-6 items-start justify-between">
+      <div class="space-y-4 max-w-3xl">
+        <span class="inline-block bg-ielts-lightBlue text-ielts-blue text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Grammar Lab #01</span>
+        <h2 class="text-3xl font-extrabold text-ielts-navy tracking-tight">Mastering Sentence Boundaries</h2>
+        <p class="text-gray-600 text-lg leading-relaxed">
+          Struggling with run-ons, comma splices, or writing sentences that feel fragmented? This 45-minute active diagnostic and practice lab targets the precise sentence structure errors that limit IELTS candidates to Band 5.0 in writing and speaking. Learn to control your boundaries and unlock your Band 7.0 potential.
+        </p>
+        
+        <!-- Three Observable Outcomes -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
+          <div class="flex items-start gap-3 bg-gray-50 p-3 rounded-lg border border-gray-100">
+            <i class="fa-solid fa-magnifying-glass text-ielts-blue mt-1"></i>
+            <div>
+              <h4 class="font-bold text-sm text-ielts-navy">1. Spot & Classify</h4>
+              <p class="text-xs text-gray-500 mt-1">Identify run-ons, fragments, and comma splices in academic contexts.</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3 bg-gray-50 p-3 rounded-lg border border-gray-100">
+            <i class="fa-solid fa-wrench text-ielts-emerald mt-1"></i>
+            <div>
+              <h4 class="font-bold text-sm text-ielts-navy">2. Repair Errors</h4>
+              <p class="text-xs text-gray-500 mt-1">Reconstruct boundary failures using subordinators, coordinators, or punctuation.</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3 bg-gray-50 p-3 rounded-lg border border-gray-100">
+            <i class="fa-solid fa-feather-pointed text-ielts-amber mt-1"></i>
+            <div>
+              <h4 class="font-bold text-sm text-ielts-navy">3. Synthesize Range</h4>
+              <p class="text-xs text-gray-500 mt-1">Compose varied, clean compound and complex clauses for productive tasks.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Time & Action Widget -->
+      <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 w-full md:w-80 flex flex-col items-center text-center justify-between shrink-0 shadow-inner">
+        <div class="space-y-2">
+          <i class="fa-regular fa-clock text-4xl text-ielts-blue"></i>
+          <h3 class="font-bold text-lg text-ielts-navy">Estimated Study Time</h3>
+          <p class="text-3xl font-black text-ielts-blue">45 <span class="text-sm font-normal text-gray-500">mins</span></p>
+          <p class="text-xs text-gray-500">Diagnostic-first workflow. Progression depends on accuracy.</p>
+        </div>
+        <button id="start-lab-btn" class="w-full mt-6 bg-ielts-navy hover:bg-slate-800 text-white font-bold py-3 px-6 rounded-lg transition duration-200 shadow-md focus-ring" aria-label="Start diagnostic grammar lab">
+          Start Lab
+        </button>
+      </div>
+    </section>
+
+    <!-- 2. DIAGNOSTIC ENTRY CHECK (Locked by default until started, but openable) -->
+    <section id="diagnostic-section" class="bg-white rounded-xl shadow-sm border border-gray-200 p-6 space-y-6">
+      <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between border-b border-gray-100 pb-4 gap-2">
+        <div class="flex items-center gap-3">
+          <span class="flex items-center justify-center bg-ielts-navy text-white text-sm font-bold w-8 h-8 rounded-full">1</span>
+          <div>
+            <h3 class="text-xl font-bold text-ielts-navy">Diagnostic Entry Check</h3>
+            <p class="text-xs text-gray-500">5-minute diagnostic task &bull; 5 items &bull; Establish error patterns before instruction</p>
+          </div>
+        </div>
+        <div id="diagnostic-badge" class="bg-gray-100 text-gray-600 text-xs font-bold px-3 py-1 rounded-full uppercase">
+          Locked
+        </div>
+      </div>
+
+      <!-- Instruction Callout -->
+      <div class="bg-ielts-lightBlue border-l-4 border-ielts-blue p-4 rounded-r-lg">
+        <p class="text-sm text-ielts-navy font-semibold">
+          <i class="fa-solid fa-lightbulb mr-2"></i>Instructions:
+        </p>
+        <p class="text-xs text-slate-700 mt-1">
+          Analyze the following sentences derived from academic writing contexts. Identify the primary sentence boundary status of each sentence and rate your confidence in your choice.
+        </p>
+      </div>
+
+      <!-- Diagnostic Form -->
+      <form id="diagnostic-form" class="space-y-8" onsubmit="return false;">
+        <!-- ITEM 1 -->
+        <div class="bg-gray-50 border border-gray-200 rounded-lg p-5 space-y-4">
+          <div class="flex items-start justify-between gap-3">
+            <span class="text-sm font-bold text-ielts-blue">Item 1 (Topic: Social Sciences)</span>
+          </div>
+          <p class="text-sm font-medium text-slate-800 bg-white border border-gray-100 p-3 rounded italic select-all">
+            "Although the research group collected quantitative survey data for six months."
+          </p>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <label for="diag-q1-ans" class="block text-xs font-bold text-slate-700 uppercase mb-1">Sentence Status:</label>
+              <select id="diag-q1-ans" class="w-full bg-white border border-gray-300 rounded p-2 text-sm focus-ring" required disabled>
+                <option value="">-- Select Sentence Status --</option>
+                <option value="fragment">Sentence Fragment (Incomplete Clause)</option>
+                <option value="comma_splice">Comma Splice (Joined by comma only)</option>
+                <option value="run_on">Run-on Sentence (Fused clauses without connectors)</option>
+                <option value="correct">Correct Sentence Structure</option>
+              </select>
+            </div>
+            <div>
+              <span class="block text-xs font-bold text-slate-700 uppercase mb-1">Confidence Rating:</span>
+              <div class="flex items-center gap-2 mt-2">
+                <span class="text-xs text-slate-500">Low</span>
+                <input type="range" id="diag-q1-conf" min="1" max="5" value="3" class="w-full accent-ielts-blue" disabled>
+                <span class="text-xs text-slate-500">High</span>
+              </div>
+            </div>
+          </div>
+          <div id="diag-q1-feedback" class="text-xs hidden p-3 rounded mt-2"></div>
+        </div>
+
+        <!-- ITEM 2 -->
+        <div class="bg-gray-50 border border-gray-200 rounded-lg p-5 space-y-4">
+          <div class="flex items-start justify-between gap-3">
+            <span class="text-sm font-bold text-ielts-blue">Item 2 (Topic: Climate Science)</span>
+          </div>
+          <p class="text-sm font-medium text-slate-800 bg-white border border-gray-100 p-3 rounded italic select-all">
+            "The global temperature rose by two degrees, many low-lying coastal areas flooded."
+          </p>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <label for="diag-q2-ans" class="block text-xs font-bold text-slate-700 uppercase mb-1">Sentence Status:</label>
+              <select id="diag-q2-ans" class="w-full bg-white border border-gray-300 rounded p-2 text-sm focus-ring" required disabled>
+                <option value="">-- Select Sentence Status --</option>
+                <option value="fragment">Sentence Fragment (Incomplete Clause)</option>
+                <option value="comma_splice">Comma Splice (Joined by comma only)</option>
+                <option value="run_on">Run-on Sentence (Fused clauses without connectors)</option>
+                <option value="correct">Correct Sentence Structure</option>
+              </select>
+            </div>
+            <div>
+              <span class="block text-xs font-bold text-slate-700 uppercase mb-1">Confidence Rating:</span>
+              <div class="flex items-center gap-2 mt-2">
+                <span class="text-xs text-slate-500">Low</span>
+                <input type="range" id="diag-q2-conf" min="1" max="5" value="3" class="w-full accent-ielts-blue" disabled>
+                <span class="text-xs text-slate-500">High</span>
+              </div>
+            </div>
+          </div>
+          <div id="diag-q2-feedback" class="text-xs hidden p-3 rounded mt-2"></div>
+        </div>
+
+        <!-- ITEM 3 -->
+        <div class="bg-gray-50 border border-gray-200 rounded-lg p-5 space-y-4">
+          <div class="flex items-start justify-between gap-3">
+            <span class="text-sm font-bold text-ielts-blue">Item 3 (Topic: Business Economics)</span>
+          </div>
+          <p class="text-sm font-medium text-slate-800 bg-white border border-gray-100 p-3 rounded italic select-all">
+            "The sample size was too small therefore the results cannot be generalized."
+          </p>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <label for="diag-q3-ans" class="block text-xs font-bold text-slate-700 uppercase mb-1">Sentence Status:</label>
+              <select id="diag-q3-ans" class="w-full bg-white border border-gray-300 rounded p-2 text-sm focus-ring" required disabled>
+                <option value="">-- Select Sentence Status --</option>
+                <option value="fragment">Sentence Fragment (Incomplete Clause)</option>
+                <option value="comma_splice">Comma Splice (Joined by comma only)</option>
+                <option value="run_on">Run-on Sentence (Fused clauses without connectors)</option>
+                <option value="correct">Correct Sentence Structure</option>
+              </select>
+            </div>
+            <div>
+              <span class="block text-xs font-bold text-slate-700 uppercase mb-1">Confidence Rating:</span>
+              <div class="flex items-center gap-2 mt-2">
+                <span class="text-xs text-slate-500">Low</span>
+                <input type="range" id="diag-q3-conf" min="1" max="5" value="3" class="w-full accent-ielts-blue" disabled>
+                <span class="text-xs text-slate-500">High</span>
+              </div>
+            </div>
+          </div>
+          <div id="diag-q3-feedback" class="text-xs hidden p-3 rounded mt-2"></div>
+        </div>
+
+        <!-- ITEM 4 -->
+        <div class="bg-gray-50 border border-gray-200 rounded-lg p-5 space-y-4">
+          <div class="flex items-start justify-between gap-3">
+            <span class="text-sm font-bold text-ielts-blue">Item 4 (Topic: Urban Design)</span>
+          </div>
+          <p class="text-sm font-medium text-slate-800 bg-white border border-gray-100 p-3 rounded italic select-all">
+            "Particularly when examining the impact of carbon emissions on urban heat islands."
+          </p>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <label for="diag-q4-ans" class="block text-xs font-bold text-slate-700 uppercase mb-1">Sentence Status:</label>
+              <select id="diag-q4-ans" class="w-full bg-white border border-gray-300 rounded p-2 text-sm focus-ring" required disabled>
+                <option value="">-- Select Sentence Status --</option>
+                <option value="fragment">Sentence Fragment (Incomplete Clause)</option>
+                <option value="comma_splice">Comma Splice (Joined by comma only)</option>
+                <option value="run_on">Run-on Sentence (Fused clauses without connectors)</option>
+                <option value="correct">Correct Sentence Structure</option>
+              </select>
+            </div>
+            <div>
+              <span class="block text-xs font-bold text-slate-700 uppercase mb-1">Confidence Rating:</span>
+              <div class="flex items-center gap-2 mt-2">
+                <span class="text-xs text-slate-500">Low</span>
+                <input type="range" id="diag-q4-conf" min="1" max="5" value="3" class="w-full accent-ielts-blue" disabled>
+                <span class="text-xs text-slate-500">High</span>
+              </div>
+            </div>
+          </div>
+          <div id="diag-q4-feedback" class="text-xs hidden p-3 rounded mt-2"></div>
+        </div>
+
+        <!-- ITEM 5 -->
+        <div class="bg-gray-50 border border-gray-200 rounded-lg p-5 space-y-4">
+          <div class="flex items-start justify-between gap-3">
+            <span class="text-sm font-bold text-ielts-blue">Item 5 (Topic: Energy & Infrastructure)</span>
+          </div>
+          <p class="text-sm font-medium text-slate-800 bg-white border border-gray-100 p-3 rounded italic select-all">
+            "While some nations invest heavily in renewable energy, others continue to rely on fossil fuels."
+          </p>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <label for="diag-q5-ans" class="block text-xs font-bold text-slate-700 uppercase mb-1">Sentence Status:</label>
+              <select id="diag-q5-ans" class="w-full bg-white border border-gray-300 rounded p-2 text-sm focus-ring" required disabled>
+                <option value="">-- Select Sentence Status --</option>
+                <option value="fragment">Sentence Fragment (Incomplete Clause)</option>
+                <option value="comma_splice">Comma Splice (Joined by comma only)</option>
+                <option value="run_on">Run-on Sentence (Fused clauses without connectors)</option>
+                <option value="correct">Correct Sentence Structure</option>
+              </select>
+            </div>
+            <div>
+              <span class="block text-xs font-bold text-slate-700 uppercase mb-1">Confidence Rating:</span>
+              <div class="flex items-center gap-2 mt-2">
+                <span class="text-xs text-slate-500">Low</span>
+                <input type="range" id="diag-q5-conf" min="1" max="5" value="3" class="w-full accent-ielts-blue" disabled>
+                <span class="text-xs text-slate-500">High</span>
+              </div>
+            </div>
+          </div>
+          <div id="diag-q5-feedback" class="text-xs hidden p-3 rounded mt-2"></div>
+        </div>
+
+        <div class="flex justify-end pt-4 border-t border-gray-100">
+          <button type="submit" id="submit-diagnostic-btn" class="bg-ielts-blue hover:bg-blue-700 text-white font-bold py-2.5 px-6 rounded transition shadow-md focus-ring cursor-not-allowed" disabled>
+            Check Diagnostic Results
+          </button>
+        </div>
+      </form>
+    </section>
+
+    <!-- 3. TEACHER INTERPRETATION PANEL & ADAPTIVE PATHWAY -->
+    <section id="interpretation-section" class="locked-section bg-white rounded-xl shadow-sm border border-gray-200 p-6 space-y-6">
+      <!-- Locked Overlay -->
+      <div id="interpretation-lock-overlay" class="locked-overlay absolute inset-0 flex flex-col items-center justify-center text-center p-6 z-10">
+        <i class="fa-solid fa-lock text-4xl text-slate-400 mb-2"></i>
+        <h4 class="font-bold text-slate-800">Diagnostic Results Pending</h4>
+        <p class="text-xs text-slate-500 max-w-sm mt-1">Complete the Diagnostic Entry Check above to unlock the teacher interpretation, teaching content, and practice sets.</p>
+      </div>
+
+      <div class="flex items-center gap-3 border-b border-gray-100 pb-4">
+        <span class="flex items-center justify-center bg-ielts-navy text-white text-sm font-bold w-8 h-8 rounded-full">2</span>
+        <div>
+          <h3 class="text-xl font-bold text-ielts-navy">Teacher Interpretation & Diagnostic Profile</h3>
+          <p class="text-xs text-gray-500">Curriculum assessment-level insight based on your error pattern and confidence levels</p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Diagnostic Score -->
+        <div class="bg-slate-50 border border-gray-200 rounded-lg p-5 text-center flex flex-col justify-center">
+          <span class="block text-xs font-bold text-slate-500 uppercase">Diagnostic Score</span>
+          <span id="diagnostic-score-display" class="text-5xl font-black text-ielts-navy my-2">0 / 5</span>
+          <span id="diagnostic-percentile-display" class="text-xs font-semibold text-slate-600">GRA Criteria Benchmark</span>
+        </div>
+
+        <!-- Detected Bottleneck -->
+        <div class="bg-slate-50 border border-gray-200 rounded-lg p-5 flex flex-col justify-between">
+          <div>
+            <span class="block text-xs font-bold text-slate-500 uppercase">Primary Bottleneck</span>
+            <h4 id="bottleneck-title" class="text-lg font-bold text-ielts-navy mt-1">Analyzing...</h4>
+            <p id="bottleneck-desc" class="text-xs text-slate-600 mt-2">Finish the diagnostic test to see your pattern analysis.</p>
+          </div>
+          <div class="mt-4 pt-2 border-t border-gray-200 flex items-center justify-between text-xs text-slate-500">
+            <span>Confidence Index:</span>
+            <span id="confidence-index-display" class="font-bold">--</span>
+          </div>
+        </div>
+
+        <!-- Coach Recommendation -->
+        <div class="bg-slate-50 border border-gray-200 rounded-lg p-5 flex flex-col justify-between">
+          <div>
+            <span class="block text-xs font-bold text-slate-500 uppercase">Coach Recommendation</span>
+            <div id="coach-advice-box" class="text-xs text-slate-600 mt-2 space-y-2 leading-relaxed">
+              <p>Your results will dictate the focus of the practice modules. We target the errors that are dragging down your score.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Actionable Teacher Feedback Scripts (Accordion for quick preview or printout) -->
+      <details class="bg-gray-50 border border-gray-200 rounded-lg p-4 group">
+        <summary class="flex justify-between items-center font-bold text-sm text-ielts-navy cursor-pointer list-none select-none">
+          <span><i class="fa-solid fa-clipboard-question mr-2 text-ielts-blue"></i>Teacher Coaching Language Scripts (Printable Feedback templates)</span>
+          <span class="group-open:rotate-180 transition-transform duration-200 text-xs text-slate-500">Show <i class="fa-solid fa-chevron-down ml-1"></i></span>
+        </summary>
+        <div class="mt-4 text-xs space-y-3 text-slate-700 leading-relaxed border-t border-gray-200 pt-3">
+          <p>If you are a teacher using this tool with learners, use the following feedback scripts to guide their remediation:</p>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-2">
+            <div class="p-3 bg-white border border-gray-200 rounded">
+              <strong class="text-ielts-crimson block mb-1">For Fragment Patterns:</strong>
+              "You are writing subordinate clauses but omitting the independent clause. In IELTS writing, this causes structural fragments. Ensure every dependent marker (e.g., 'although', 'because', 'which') connects directly to a main subject-verb foundation."
+            </div>
+            <div class="p-3 bg-white border border-gray-200 rounded">
+              <strong class="text-ielts-amber block mb-1">For Comma Splice Patterns:</strong>
+              "You are connecting independent thoughts using only commas. Commas do not carry the structural weight to partition independent clauses. Use a semicolon, coordinate with a conjunction, or end the sentence with a period."
+            </div>
+            <div class="p-3 bg-white border border-gray-200 rounded">
+              <strong class="text-ielts-navy block mb-1">For Run-on Patterns:</strong>
+              "You are fusing independent clauses together without transitional marking. This obscures logical progression. Try incorporating relative clauses or linking coordinate points with appropriate conjunctions."
+            </div>
+          </div>
+        </div>
+      </details>
+    </section>
+
+    <!-- 4. FORM-MEANING-USE TEACHING -->
+    <section id="teaching-section" class="locked-section bg-white rounded-xl shadow-sm border border-gray-200 p-6 space-y-6">
+      <!-- Locked Overlay -->
+      <div id="teaching-lock-overlay" class="locked-overlay absolute inset-0 flex flex-col items-center justify-center text-center p-6 z-10"></div>
+      
+      <div class="flex items-center gap-3 border-b border-gray-100 pb-4">
+        <span class="flex items-center justify-center bg-ielts-navy text-white text-sm font-bold w-8 h-8 rounded-full">3</span>
+        <div>
+          <h3 class="text-xl font-bold text-ielts-navy">Form-Meaning-Use Framework</h3>
+          <p class="text-xs text-gray-500">Calibrating sentence boundaries for IELTS Band 7.0 Grammatical Range and Accuracy</p>
+        </div>
+      </div>
+
+      <!-- Compact Concept Table -->
+      <div class="overflow-x-auto border border-gray-200 rounded-lg">
+        <table class="min-w-full text-left border-collapse text-xs sm:text-sm">
+          <thead>
+            <tr class="bg-ielts-navy text-white">
+              <th class="p-3 font-semibold border-b">Error Category</th>
+              <th class="p-3 font-semibold border-b">The Grammatical Failure (Form)</th>
+              <th class="p-3 font-semibold border-b">The Impact on Meaning</th>
+              <th class="p-3 font-semibold border-b">How to Repair for Band 7.0 (Use)</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-gray-200">
+            <tr class="hover:bg-gray-50">
+              <td class="p-3 font-bold text-ielts-crimson whitespace-nowrap">Sentence Fragment</td>
+              <td class="p-3">A dependent clause (often starting with a subordinator like <em>because</em>, <em>although</em>, or <em>since</em>) stands alone without a main clause.</td>
+              <td class="p-3">The reader is left waiting for the result or main assertion, leaving the argument incomplete.</td>
+              <td class="p-3">Attach the fragment to an adjacent independent clause or supply the missing subject/verb.</td>
+            </tr>
+            <tr class="hover:bg-gray-50">
+              <td class="p-3 font-bold text-ielts-amber whitespace-nowrap">Comma Splice</td>
+              <td class="p-3">Two independent clauses are separated only by a comma (often with conjunctive adverbs like <em>however</em> or <em>therefore</em>).</td>
+              <td class="p-3">Blurs the boundary between separate arguments, making thoughts bleed together.</td>
+              <td class="p-3">Use a semicolon, a coordinating conjunction (<em>but, and, so</em>), or split into two sentences.</td>
+            </tr>
+            <tr class="hover:bg-gray-50">
+              <td class="p-3 font-bold text-slate-700 whitespace-nowrap">Run-on Sentence</td>
+              <td class="p-3">Two independent clauses are fused together with zero punctuation or coordinating conjunctions.</td>
+              <td class="p-3">Forces the reader to parse the structural separation points manually, causing fatigue.</td>
+              <td class="p-3">Add standard boundary markers (punctuation) or construct a clear complex sentence structure.</td>
+            </tr>
+            <tr class="bg-emerald-50 hover:bg-emerald-100">
+              <td class="p-3 font-bold text-emerald-800 whitespace-nowrap"><i class="fa-solid fa-circle-check mr-1"></i>Band 7.0 Standard</td>
+              <td class="p-3">A clean mix of simple, compound, and complex sentences with precise punctuation boundaries.</td>
+              <td class="p-3">The reader focuses entirely on the coherence of the academic argument.</td>
+              <td class="p-3">Vary structures consciously while maintaining absolute boundary control.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Contrast Pairs and IELTS Progression Model -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
+        <div class="border border-gray-200 rounded-lg p-5 space-y-3">
+          <h4 class="font-bold text-sm text-ielts-navy border-b border-gray-100 pb-2 uppercase tracking-wide">
+            <i class="fa-solid fa-circle-xmark mr-1.5 text-ielts-crimson"></i>Band 4.0 &rarr; 5.0 Style (Over-coordination & Boundary Errors)
+          </h4>
+          <div class="text-xs bg-red-50 border-l-4 border-ielts-crimson p-3 rounded-r text-red-900 leading-relaxed italic space-y-2">
+            <p>
+              "Some people support nuclear energy, it is clean. And they think it reduces carbon emissions. But nuclear plants can have accidents, then dangerous radiation leaks out."
+            </p>
+            <span class="block font-bold text-slate-500 not-italic text-[10px] uppercase mt-1">Why it fails:</span>
+            <ul class="list-disc pl-4 space-y-1 text-[11px] text-slate-700 not-italic">
+              <li>Comma splice ("energy, it is")</li>
+              <li>Fragment starting with "And..."</li>
+              <li>Run-on sentence layout ("accidents, then dangerous...")</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-lg p-5 space-y-3">
+          <h4 class="font-bold text-sm text-ielts-navy border-b border-gray-100 pb-2 uppercase tracking-wide">
+            <i class="fa-solid fa-circle-check mr-1.5 text-emerald-600"></i>Band 7.0+ Style (Complex range & precise boundaries)
+          </h4>
+          <div class="text-xs bg-emerald-50 border-l-4 border-emerald-500 p-3 rounded-r text-emerald-900 leading-relaxed italic space-y-2">
+            <p>
+              "Although nuclear energy is relatively clean, concerns persist because plants are vulnerable to accidents. If an accident occurs, dangerous radiation leaks into the local environment."
+            </p>
+            <span class="block font-bold text-slate-500 not-italic text-[10px] uppercase mt-1">Key features:</span>
+            <ul class="list-disc pl-4 space-y-1 text-[11px] text-slate-700 not-italic">
+              <li>Accurate complex clauses ("Although nuclear... clean, concerns...")</li>
+              <li>Subordinate conditions ("If an accident...")</li>
+              <li>Zero fragment or comma splice vulnerabilities.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. MISCONCEPTION CHECKS (NEW SECTION) -->
+    <section id="misconception-section" class="locked-section bg-white rounded-xl shadow-sm border border-gray-200 p-6 space-y-6">
+      <div id="misconception-lock-overlay" class="locked-overlay absolute inset-0 flex flex-col items-center justify-center text-center p-6 z-10"></div>
+      
+      <div class="flex items-center gap-3 border-b border-gray-100 pb-4">
+        <span class="flex items-center justify-center bg-ielts-navy text-white text-sm font-bold w-8 h-8 rounded-full">4</span>
+        <div>
+          <h3 class="text-xl font-bold text-ielts-navy">Misconception Checkups</h3>
+          <p class="text-xs text-gray-500">Unmasking subtle sentence boundary illusions that trap intermediate candidates (3 items)</p>
+        </div>
+      </div>
+
+      <div class="space-y-6">
+        <!-- Misconception Item 1 -->
+        <div class="bg-slate-50 border border-gray-200 rounded p-4 space-y-3">
+          <span class="text-xs font-bold text-ielts-blue block">Item 12: The "However" Illusion (Conjunctive Adverbs)</span>
+          <p class="text-sm font-medium italic text-slate-800">
+            Analyze this paragraph excerpt: "Governments should invest in public transit, however, many people still prefer driving." What is the grammatical issue?
+          </p>
+          <div class="space-y-2 text-xs">
+            <label class="flex items-start gap-3 p-2 bg-white border border-gray-100 rounded hover:bg-gray-100 cursor-pointer">
+              <input type="radio" name="miscon-q1" value="A" class="mt-0.5 accent-ielts-blue">
+              <span><strong>A.</strong> It is correct because 'however' is preceded by a comma and followed by a comma, functioning like 'but'.</span>
+            </label>
+            <label class="flex items-start gap-3 p-2 bg-white border border-gray-100 rounded hover:bg-gray-100 cursor-pointer">
+              <input type="radio" name="miscon-q1" value="B" class="mt-0.5 accent-ielts-blue">
+              <span><strong>B.</strong> It is a sentence fragment because the transition 'however' makes the second clause dependent.</span>
+            </label>
+            <label class="flex items-start gap-3 p-2 bg-white border border-gray-100 rounded hover:bg-gray-100 cursor-pointer">
+              <input type="radio" name="miscon-q1" value="C" class="mt-0.5 accent-ielts-blue">
+              <span><strong>C.</strong> It is a comma splice because 'however' is a conjunctive adverb, which lacks the power to coordinate two independent clauses without a semicolon or period.</span>
+            </label>
+            <label class="flex items-start gap-3 p-2 bg-white border border-gray-100 rounded hover:bg-gray-100 cursor-pointer">
+              <input type="radio" name="miscon-q1" value="D" class="mt-0.5 accent-ielts-blue">
+              <span><strong>D.</strong> It is correct because the comma before 'however' signals a necessary spoken pause.</span>
+            </label>
+          </div>
+          <div id="miscon-q1-feedback" class="text-xs hidden p-3 rounded"></div>
+        </div>
+
+        <!-- Misconception Item 2 -->
+        <div class="bg-slate-50 border border-gray-200 rounded p-4 space-y-3">
+          <span class="text-xs font-bold text-ielts-blue block">Item 13: The Length Illusion (Dependent Modifiers)</span>
+          <p class="text-sm font-medium italic text-slate-800">
+            Is the following a complete sentence: "Although the local council built several parks, including a large recreational area in the city center that features running tracks, children's playgrounds, and open green spaces."?
+          </p>
+          <div class="space-y-2 text-xs">
+            <label class="flex items-start gap-3 p-2 bg-white border border-gray-100 rounded hover:bg-gray-100 cursor-pointer">
+              <input type="radio" name="miscon-q2" value="A" class="mt-0.5 accent-ielts-blue">
+              <span><strong>A.</strong> Yes, because the sheer length and quantity of details satisfy the requirement for a complete idea.</span>
+            </label>
+            <label class="flex items-start gap-3 p-2 bg-white border border-gray-100 rounded hover:bg-gray-100 cursor-pointer">
+              <input type="radio" name="miscon-q2" value="B" class="mt-0.5 accent-ielts-blue">
+              <span><strong>B.</strong> No, it is a sentence fragment because the subordinator 'Although' makes the entire unit dependent, and it lacks a main independent clause.</span>
+            </label>
+            <label class="flex items-start gap-3 p-2 bg-white border border-gray-100 rounded hover:bg-gray-100 cursor-pointer">
+              <input type="radio" name="miscon-q2" value="C" class="mt-0.5 accent-ielts-blue">
+              <span><strong>C.</strong> No, it is a run-on sentence because the listing commas are not backed by coordinating conjunctions.</span>
+            </label>
+            <label class="flex items-start gap-3 p-2 bg-white border border-gray-100 rounded hover:bg-gray-100 cursor-pointer">
+              <input type="radio" name="miscon-q2" value="D" class="mt-0.5 accent-ielts-blue">
+              <span><strong>D.</strong> Yes, because the phrase 'including a large recreational area' operates grammatically as a main verb.</span>
+            </label>
+          </div>
+          <div id="miscon-q2-feedback" class="text-xs hidden p-3 rounded"></div>
+        </div>
+
+        <!-- Misconception Item 3 -->
+        <div class="bg-slate-50 border border-gray-200 rounded p-4 space-y-3">
+          <span class="text-xs font-bold text-ielts-blue block">Item 14: The "FANBOYS" Punctuation Pitfall (Coordinating Conjunctions)</span>
+          <p class="text-sm font-medium italic text-slate-800">
+            Consider: "Academic studies indicate that remote work improves productivity and employee satisfaction scores rise as a result." What punctuation change is required?
+          </p>
+          <div class="space-y-2 text-xs">
+            <label class="flex items-start gap-3 p-2 bg-white border border-gray-100 rounded hover:bg-gray-100 cursor-pointer">
+              <input type="radio" name="miscon-q3" value="A" class="mt-0.5 accent-ielts-blue">
+              <span><strong>A.</strong> The sentence is correct. No punctuation is required when joining clauses with 'and'.</span>
+            </label>
+            <label class="flex items-start gap-3 p-2 bg-white border border-gray-100 rounded hover:bg-gray-100 cursor-pointer">
+              <input type="radio" name="miscon-q3" value="B" class="mt-0.5 accent-ielts-blue">
+              <span><strong>B.</strong> Place a comma after 'productivity' to mark the boundary before coordinating two independent clauses.</span>
+            </label>
+            <label class="flex items-start gap-3 p-2 bg-white border border-gray-100 rounded hover:bg-gray-100 cursor-pointer">
+              <input type="radio" name="miscon-q3" value="C" class="mt-0.5 accent-ielts-blue">
+              <span><strong>C.</strong> Place a semicolon after 'and' to separate the clauses.</span>
+            </label>
+            <label class="flex items-start gap-3 p-2 bg-white border border-gray-100 rounded hover:bg-gray-100 cursor-pointer">
+              <input type="radio" name="miscon-q3" value="D" class="mt-0.5 accent-ielts-blue">
+              <span><strong>D.</strong> Put a comma after 'work' to separate the subject from its verb structure.</span>
+            </label>
+          </div>
+          <div id="miscon-q3-feedback" class="text-xs hidden p-3 rounded"></div>
+        </div>
+
+        <div class="flex justify-end pt-2">
+          <button id="check-miscon-btn" class="bg-ielts-blue hover:bg-blue-700 text-white font-bold py-1.5 px-4 rounded text-xs transition shadow focus-ring">
+            Check Misconceptions
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. SCAFFOLDED PRACTICE MODULES -->
+    <section id="practice-section" class="locked-section bg-white rounded-xl shadow-sm border border-gray-200 p-6 space-y-8">
+      <!-- Locked Overlay -->
+      <div id="practice-lock-overlay" class="locked-overlay absolute inset-0 flex flex-col items-center justify-center text-center p-6 z-10"></div>
+      
+      <div class="flex items-center gap-3 border-b border-gray-100 pb-4">
+        <span class="flex items-center justify-center bg-ielts-navy text-white text-sm font-bold w-8 h-8 rounded-full">5</span>
+        <div>
+          <h3 class="text-xl font-bold text-ielts-navy">Scaffolded Practice Modules</h3>
+          <p class="text-xs text-gray-500">Notice &rarr; Choose &rarr; Repair &rarr; Produce &rarr; Guided Construction &rarr; Apply (17 active interactions)</p>
+        </div>
+      </div>
+
+      <!-- PHASE A: NOTICE (Click to highlight the error word) -->
+      <div class="space-y-4">
+        <h4 class="font-bold text-base text-ielts-navy border-b border-gray-150 pb-1">
+          Phase 1: Notice (Identify Boundary Failures)
+        </h4>
+        <p class="text-xs text-gray-500">
+          Instructions: In each sentence below, click the specific word or punctuation mark that causes the boundary error.
+        </p>
+
+        <!-- Notice Item 1 -->
+        <div class="bg-slate-50 border border-gray-200 rounded p-4 space-y-2">
+          <div class="flex justify-between items-center text-xs">
+            <span class="font-bold text-ielts-blue">Item 6 (Topic: Online Learning)</span>
+            <span id="notice-status-0" class="font-semibold text-slate-500">Status: Unanswered</span>
+          </div>
+          <div class="p-3 bg-white border border-gray-100 rounded text-sm leading-relaxed" id="notice-sentence-0">
+            <!-- Rendered dynamically by JavaScript -->
+          </div>
+          <div id="notice-feedback-0" class="text-xs hidden p-3 rounded mt-2"></div>
+        </div>
+
+        <!-- Notice Item 2 -->
+        <div class="bg-slate-50 border border-gray-200 rounded p-4 space-y-2">
+          <div class="flex justify-between items-center text-xs">
+            <span class="font-bold text-ielts-blue">Item 7 (Topic: Government Policy)</span>
+            <span id="notice-status-1" class="font-semibold text-slate-500">Status: Unanswered</span>
+          </div>
+          <div class="p-3 bg-white border border-gray-100 rounded text-sm leading-relaxed" id="notice-sentence-1">
+            <!-- Rendered dynamically by JavaScript -->
+          </div>
+          <div id="notice-feedback-1" class="text-xs hidden p-3 rounded mt-2"></div>
+        </div>
+
+        <!-- Notice Item 3 -->
+        <div class="bg-slate-50 border border-gray-200 rounded p-4 space-y-2">
+          <div class="flex justify-between items-center text-xs">
+            <span class="font-bold text-ielts-blue">Item 8 (Topic: Neuroscience)</span>
+            <span id="notice-status-2" class="font-semibold text-slate-500">Status: Unanswered</span>
+          </div>
+          <div class="p-3 bg-white border border-gray-100 rounded text-sm leading-relaxed" id="notice-sentence-2">
+            <!-- Rendered dynamically by JavaScript -->
+          </div>
+          <div id="notice-feedback-2" class="text-xs hidden p-3 rounded mt-2"></div>
+        </div>
+
+        <div class="flex justify-end pt-2">
+          <button id="check-notice-btn" class="bg-ielts-blue hover:bg-blue-700 text-white font-bold py-1.5 px-4 rounded text-xs transition shadow focus-ring">
+            Check Notice Set
+          </button>
+        </div>
+      </div>
+
+      <!-- PHASE B: CHOOSE (Multiple Choice) -->
+      <div class="space-y-4 pt-4 border-t border-gray-100">
+        <h4 class="font-bold text-base text-ielts-navy border-b border-gray-150 pb-1">
+          Phase 2: Choose (Identify Band 7.0 Solutions)
+        </h4>
+        <p class="text-xs text-gray-500">
+          Instructions: Select the grammatically correct and most cohesive rewrite of each academic sentence.
+        </p>
+
+        <!-- Choose Item 1 -->
+        <div class="bg-slate-50 border border-gray-200 rounded p-4 space-y-3">
+          <span class="text-xs font-bold text-ielts-blue block">Item 9 (Topic: Educational Technology)</span>
+          <p class="text-sm font-medium italic text-slate-800">
+            Original: "Computers are common in schools, they have not replaced teachers."
+          </p>
+          <div class="space-y-2 text-xs">
+            <label class="flex items-start gap-3 p-2 bg-white border border-gray-100 rounded hover:bg-gray-100 cursor-pointer">
+              <input type="radio" name="choose-q1" value="A" class="mt-0.5 accent-ielts-blue">
+              <span><strong>A.</strong> Computers are common in schools, they have not replaced teachers.</span>
+            </label>
+            <label class="flex items-start gap-3 p-2 bg-white border border-gray-100 rounded hover:bg-gray-100 cursor-pointer">
+              <input type="radio" name="choose-q1" value="B" class="mt-0.5 accent-ielts-blue">
+              <span><strong>B.</strong> Although computers are common in schools, they have not replaced teachers.</span>
+            </label>
+            <label class="flex items-start gap-3 p-2 bg-white border border-gray-100 rounded hover:bg-gray-100 cursor-pointer">
+              <input type="radio" name="choose-q1" value="C" class="mt-0.5 accent-ielts-blue">
+              <span><strong>C.</strong> Computers are common in schools they have not replaced teachers.</span>
+            </label>
+            <label class="flex items-start gap-3 p-2 bg-white border border-gray-100 rounded hover:bg-gray-100 cursor-pointer">
+              <input type="radio" name="choose-q1" value="D" class="mt-0.5 accent-ielts-blue">
+              <span><strong>D.</strong> Computers are common in schools, however, they have not replaced teachers.</span>
+            </label>
+          </div>
+          <div id="choose-q1-feedback" class="text-xs hidden p-3 rounded"></div>
+        </div>
+
+        <!-- Choose Item 2 -->
+        <div class="bg-slate-50 border border-gray-200 rounded p-4 space-y-3">
+          <span class="text-xs font-bold text-ielts-blue block">Item 10 (Topic: Alternative Power)</span>
+          <p class="text-sm font-medium italic text-slate-800">
+            Original: "Wind turbines generate clean energy. Which reduces reliance on coal."
+          </p>
+          <div class="space-y-2 text-xs">
+            <label class="flex items-start gap-3 p-2 bg-white border border-gray-100 rounded hover:bg-gray-100 cursor-pointer">
+              <input type="radio" name="choose-q2" value="A" class="mt-0.5 accent-ielts-blue">
+              <span><strong>A.</strong> Wind turbines generate clean energy, which reduces reliance on coal.</span>
+            </label>
+            <label class="flex items-start gap-3 p-2 bg-white border border-gray-100 rounded hover:bg-gray-100 cursor-pointer">
+              <input type="radio" name="choose-q2" value="B" class="mt-0.5 accent-ielts-blue">
+              <span><strong>B.</strong> Wind turbines generate clean energy which reduces reliance on coal.</span>
+            </label>
+            <label class="flex items-start gap-3 p-2 bg-white border border-gray-100 rounded hover:bg-gray-100 cursor-pointer">
+              <input type="radio" name="choose-q2" value="C" class="mt-0.5 accent-ielts-blue">
+              <span><strong>C.</strong> Wind turbines generate clean energy, this reduces reliance on coal.</span>
+            </label>
+            <label class="flex items-start gap-3 p-2 bg-white border border-gray-100 rounded hover:bg-gray-100 cursor-pointer">
+              <input type="radio" name="choose-q2" value="D" class="mt-0.5 accent-ielts-blue">
+              <span><strong>D.</strong> Wind turbines generate clean energy; Which reduces reliance on coal.</span>
+            </label>
+          </div>
+          <div id="choose-q2-feedback" class="text-xs hidden p-3 rounded"></div>
+        </div>
+
+        <!-- Choose Item 3 -->
+        <div class="bg-slate-50 border border-gray-200 rounded p-4 space-y-3">
+          <span class="text-xs font-bold text-ielts-blue block">Item 11 (Topic: Demographics)</span>
+          <p class="text-sm font-medium italic text-slate-800">
+            Original: "Cities are expanding rapidly, therefore, infrastructure must be upgraded."
+          </p>
+          <div class="space-y-2 text-xs">
+            <label class="flex items-start gap-3 p-2 bg-white border border-gray-100 rounded hover:bg-gray-100 cursor-pointer">
+              <input type="radio" name="choose-q3" value="A" class="mt-0.5 accent-ielts-blue">
+              <span><strong>A.</strong> Cities are expanding rapidly, therefore, infrastructure must be upgraded.</span>
+            </label>
+            <label class="flex items-start gap-3 p-2 bg-white border border-gray-100 rounded hover:bg-gray-100 cursor-pointer">
+              <input type="radio" name="choose-q3" value="B" class="mt-0.5 accent-ielts-blue">
+              <span><strong>B.</strong> Cities are expanding rapidly; therefore, infrastructure must be upgraded.</span>
+            </label>
+            <label class="flex items-start gap-3 p-2 bg-white border border-gray-100 rounded hover:bg-gray-100 cursor-pointer">
+              <input type="radio" name="choose-q3" value="C" class="mt-0.5 accent-ielts-blue">
+              <span><strong>C.</strong> Cities are expanding rapidly although infrastructure must be upgraded.</span>
+            </label>
+            <label class="flex items-start gap-3 p-2 bg-white border border-gray-100 rounded hover:bg-gray-100 cursor-pointer">
+              <input type="radio" name="choose-q3" value="D" class="mt-0.5 accent-ielts-blue">
+              <span><strong>D.</strong> Cities are expanding rapidly, and therefore infrastructure must be upgraded.</span>
+            </label>
+          </div>
+          <div id="choose-q3-feedback" class="text-xs hidden p-3 rounded"></div>
+        </div>
+
+        <div class="flex justify-end pt-2">
+          <button id="check-choose-btn" class="bg-ielts-blue hover:bg-blue-700 text-white font-bold py-1.5 px-4 rounded text-xs transition shadow focus-ring">
+            Check Choose Set
+          </button>
+        </div>
+      </div>
+
+      <!-- PHASE C: REPAIR (Text Editing) -->
+      <div class="space-y-4 pt-4 border-t border-gray-100">
+        <h4 class="font-bold text-base text-ielts-navy border-b border-gray-150 pb-1">
+          Phase 3: Repair (Text Revision)
+        </h4>
+        <p class="text-xs text-gray-500">
+          Instructions: Rewrite the following sentences to eliminate all sentence boundary errors. Check for punctuation and appropriate linking words.
+        </p>
+
+        <!-- Repair Item 1 -->
+        <div class="bg-slate-50 border border-gray-200 rounded p-4 space-y-2">
+          <label for="repair-q1" class="text-xs font-bold text-ielts-blue block">Item 15 (Topic: Tourism Eco-systems)</label>
+          <span class="text-xs text-slate-500 italic block">Original: "Tourism brings economic benefits, it can also damage local ecosystems."</span>
+          <input type="text" id="repair-q1" class="w-full bg-white border border-gray-300 rounded p-2 text-sm focus-ring" placeholder="Type your corrected rewrite here...">
+          <div id="repair-q1-feedback" class="text-xs hidden p-3 rounded mt-2"></div>
+        </div>
+
+        <!-- Repair Item 2 -->
+        <div class="bg-slate-50 border border-gray-200 rounded p-4 space-y-2">
+          <label for="repair-q2" class="text-xs font-bold text-ielts-blue block">Item 16 (Topic: Modern Agriculture)</label>
+          <span class="text-xs text-slate-500 italic block">Original: "Since organic farming avoids synthetic chemicals."</span>
+          <input type="text" id="repair-q2" class="w-full bg-white border border-gray-300 rounded p-2 text-sm focus-ring" placeholder="Type your corrected rewrite here...">
+          <div id="repair-q2-feedback" class="text-xs hidden p-3 rounded mt-2"></div>
+        </div>
+
+        <!-- Repair Item 3 -->
+        <div class="bg-slate-50 border border-gray-200 rounded p-4 space-y-2">
+          <label for="repair-q3" class="text-xs font-bold text-ielts-blue block">Item 17 (Topic: Industrial Automation)</label>
+          <span class="text-xs text-slate-500 italic block">Original: "Robots are performing repetitive factory tasks they are highly efficient."</span>
+          <input type="text" id="repair-q3" class="w-full bg-white border border-gray-300 rounded p-2 text-sm focus-ring" placeholder="Type your corrected rewrite here...">
+          <div id="repair-q3-feedback" class="text-xs hidden p-3 rounded mt-2"></div>
+        </div>
+
+        <div class="flex justify-end pt-2">
+          <button id="check-repair-btn" class="bg-ielts-blue hover:bg-blue-700 text-white font-bold py-1.5 px-4 rounded text-xs transition shadow focus-ring">
+            Check Repair Set
+          </button>
+        </div>
+      </div>
+
+      <!-- PHASE D: PRODUCE (Combining Clauses) -->
+      <div class="space-y-4 pt-4 border-t border-gray-100">
+        <h4 class="font-bold text-base text-ielts-navy border-b border-gray-150 pb-1">
+          Phase 4: Produce (Synthesis)
+        </h4>
+        <p class="text-xs text-gray-500">
+          Instructions: Combine the two clauses provided into one grammatically correct sentence using the suggested connector. Keep punctuation accurate.
+        </p>
+
+        <!-- Produce Item 1 -->
+        <div class="bg-slate-50 border border-gray-200 rounded p-4 space-y-2">
+          <label for="produce-q1" class="text-xs font-bold text-ielts-blue block">Item 18 (Topic: Digital Pedagogy)</label>
+          <span class="text-xs text-slate-600 block">
+            Combine: <strong class="text-slate-800">"Online education offers flexibility"</strong> &amp; <strong class="text-slate-800">"It requires strong self-discipline"</strong> using <strong class="text-ielts-blue">"although"</strong>.
+          </span>
+          <input type="text" id="produce-q1" class="w-full bg-white border border-gray-300 rounded p-2 text-sm focus-ring" placeholder="Write combined sentence here...">
+          <div id="produce-q1-feedback" class="text-xs hidden p-3 rounded mt-2"></div>
+        </div>
+
+        <!-- Produce Item 2 -->
+        <div class="bg-slate-50 border border-gray-200 rounded p-4 space-y-2">
+          <label for="produce-q2" class="text-xs font-bold text-ielts-blue block">Item 19 (Topic: Academic Research)</label>
+          <span class="text-xs text-slate-600 block">
+            Combine: <strong class="text-slate-800">"The research team faced budget cuts"</strong> &amp; <strong class="text-slate-800">"They completed the project on time"</strong> using <strong class="text-ielts-blue">"but"</strong>.
+          </span>
+          <input type="text" id="produce-q2" class="w-full bg-white border border-gray-300 rounded p-2 text-sm focus-ring" placeholder="Write combined sentence here...">
+          <div id="produce-q2-feedback" class="text-xs hidden p-3 rounded mt-2"></div>
+        </div>
+
+        <!-- Produce Item 3 -->
+        <div class="bg-slate-50 border border-gray-200 rounded p-4 space-y-2">
+          <label for="produce-q3" class="text-xs font-bold text-ielts-blue block">Item 20 (Topic: Urban Logistics)</label>
+          <span class="text-xs text-slate-600 block">
+            Combine: <strong class="text-slate-800">"Governments should subsidize public transit"</strong> &amp; <strong class="text-slate-800">"This would reduce urban traffic congestion"</strong> using a relative clause with <strong class="text-ielts-blue">"which"</strong>.
+          </span>
+          <input type="text" id="produce-q3" class="w-full bg-white border border-gray-300 rounded p-2 text-sm focus-ring" placeholder="Write combined sentence here...">
+          <div id="produce-q3-feedback" class="text-xs hidden p-3 rounded mt-2"></div>
+        </div>
+
+        <div class="flex justify-end pt-2">
+          <button id="check-produce-btn" class="bg-ielts-blue hover:bg-blue-700 text-white font-bold py-1.5 px-4 rounded text-xs transition shadow focus-ring">
+            Check Produce Set
+          </button>
+        </div>
+      </div>
+
+      <!-- PHASE E: GUIDED CONSTRUCTION (NEW SECTION) -->
+      <div class="space-y-4 pt-4 border-t border-gray-100">
+        <h4 class="font-bold text-base text-ielts-navy border-b border-gray-150 pb-1">
+          Phase 5: Guided Construction (Sentence Builder)
+        </h4>
+        <p class="text-xs text-gray-500">
+          Instructions: Build grammatically sound academic sentences by choosing the correct components and punctuation from the dropdown menus below.
+        </p>
+
+        <!-- Construction Item 1 -->
+        <div class="bg-slate-50 border border-gray-200 rounded p-4 space-y-3">
+          <span class="text-xs font-bold text-ielts-blue block">Item 21: Academic Contrast (Topic: Renewable Energy)</span>
+          <div class="flex flex-wrap items-center gap-2 text-xs">
+            <span class="font-bold text-slate-700">Sentence structure:</span>
+            <select id="construct-1-a" class="bg-white border border-gray-300 rounded p-1.5 focus-ring" onchange="updateConstructPreview(1)">
+              <option value="">[Linker]</option>
+              <option value="Although">Although</option>
+              <option value="However">However</option>
+              <option value="Because">Because</option>
+              <option value="Despite">Despite</option>
+            </select>
+            <select id="construct-1-b" class="bg-white border border-gray-300 rounded p-1.5 focus-ring" onchange="updateConstructPreview(1)">
+              <option value="">[Dependent Clause + Punctuation]</option>
+              <option value="solar power is clean">solar power is clean</option>
+              <option value="solar power is clean,">solar power is clean,</option>
+              <option value="solar power is clean;">solar power is clean;</option>
+              <option value="solar power is clean but">solar power is clean but</option>
+            </select>
+            <select id="construct-1-c" class="bg-white border border-gray-300 rounded p-1.5 focus-ring" onchange="updateConstructPreview(1)">
+              <option value="">[Independent Clause]</option>
+              <option value="it remains expensive to store.">it remains expensive to store.</option>
+              <option value="which remains expensive to store.">which remains expensive to store.</option>
+              <option value="it remains expensive to store">it remains expensive to store</option>
+              <option value="being expensive to store.">being expensive to store.</option>
+            </select>
+          </div>
+          <div class="p-2.5 bg-white border border-gray-150 rounded text-xs">
+            <span class="text-[10px] text-slate-400 font-bold uppercase block mb-0.5">Real-time Preview:</span>
+            <p id="construct-1-preview" class="font-mono text-slate-700 italic">Assembling sentence...</p>
+          </div>
+          <div id="construct-1-feedback" class="text-xs hidden p-3 rounded"></div>
+        </div>
+
+        <!-- Construction Item 2 -->
+        <div class="bg-slate-50 border border-gray-200 rounded p-4 space-y-3">
+          <span class="text-xs font-bold text-ielts-blue block">Item 22: Cause & Effect (Topic: Urban Logistics)</span>
+          <div class="flex flex-wrap items-center gap-2 text-xs">
+            <span class="font-bold text-slate-700">Sentence structure:</span>
+            <select id="construct-2-a" class="bg-white border border-gray-300 rounded p-1.5 focus-ring" onchange="updateConstructPreview(2)">
+              <option value="">[First Clause + Punctuation]</option>
+              <option value="Public transport is subsidized,">Public transport is subsidized,</option>
+              <option value="Public transport is subsidized;">Public transport is subsidized;</option>
+              <option value="Public transport is subsidized">Public transport is subsidized</option>
+              <option value="Although public transport is subsidized">Although public transport is subsidized</option>
+            </select>
+            <select id="construct-2-b" class="bg-white border border-gray-300 rounded p-1.5 focus-ring" onchange="updateConstructPreview(2)">
+              <option value="">[Transition word + Punctuation]</option>
+              <option value="therefore,">therefore,</option>
+              <option value="therefore">therefore</option>
+              <option value="but">but</option>
+              <option value="which,">which,</option>
+            </select>
+            <select id="construct-2-c" class="bg-white border border-gray-300 rounded p-1.5 focus-ring" onchange="updateConstructPreview(2)">
+              <option value="">[Second Clause]</option>
+              <option value="commuters continue to drive.">commuters continue to drive.</option>
+              <option value="commuters continue to drive">commuters continue to drive</option>
+              <option value="which causes commuters to drive.">which causes commuters to drive.</option>
+              <option value="causing commuters to drive.">causing commuters to drive.</option>
+            </select>
+          </div>
+          <div class="p-2.5 bg-white border border-gray-150 rounded text-xs">
+            <span class="text-[10px] text-slate-400 font-bold uppercase block mb-0.5">Real-time Preview:</span>
+            <p id="construct-2-preview" class="font-mono text-slate-700 italic">Assembling sentence...</p>
+          </div>
+          <div id="construct-2-feedback" class="text-xs hidden p-3 rounded"></div>
+        </div>
+
+        <!-- Construction Item 3 -->
+        <div class="bg-slate-50 border border-gray-200 rounded p-4 space-y-3">
+          <span class="text-xs font-bold text-ielts-blue block">Item 23: Relative Clause (Topic: Educational Policy)</span>
+          <div class="flex flex-wrap items-center gap-2 text-xs">
+            <span class="font-bold text-slate-700">Sentence structure:</span>
+            <select id="construct-3-a" class="bg-white border border-gray-300 rounded p-1.5 focus-ring" onchange="updateConstructPreview(3)">
+              <option value="">[Main Clause Subject + Verb]</option>
+              <option value="The government introduced new scholarship programs">The government introduced new scholarship programs</option>
+              <option value="The government introduced new scholarship programs,">The government introduced new scholarship programs,</option>
+              <option value="Although the government introduced new scholarship programs">Although the government introduced new scholarship programs</option>
+              <option value="The government introduced new scholarship programs;">The government introduced new scholarship programs;</option>
+            </select>
+            <select id="construct-3-b" class="bg-white border border-gray-300 rounded p-1.5 focus-ring" onchange="updateConstructPreview(3)">
+              <option value="">[Relative Linker]</option>
+              <option value="which">which</option>
+              <option value="that">that</option>
+              <option value="this">this</option>
+              <option value="who">who</option>
+            </select>
+            <select id="construct-3-c" class="bg-white border border-gray-300 rounded p-1.5 focus-ring" onchange="updateConstructPreview(3)">
+              <option value="">[Subordinate Clause + Ending]</option>
+              <option value="helped low-income students attend university.">helped low-income students attend university.</option>
+              <option value="helped low-income students attend university">helped low-income students attend university</option>
+              <option value="helps low-income students attend university.">helps low-income students attend university.</option>
+              <option value="assists low-income students in attending university.">assists low-income students in attending university.</option>
+            </select>
+          </div>
+          <div class="p-2.5 bg-white border border-gray-150 rounded text-xs">
+            <span class="text-[10px] text-slate-400 font-bold uppercase block mb-0.5">Real-time Preview:</span>
+            <p id="construct-3-preview" class="font-mono text-slate-700 italic">Assembling sentence...</p>
+          </div>
+          <div id="construct-3-feedback" class="text-xs hidden p-3 rounded"></div>
+        </div>
+
+        <div class="flex justify-end pt-2">
+          <button id="check-construct-btn" class="bg-ielts-blue hover:bg-blue-700 text-white font-bold py-1.5 px-4 rounded text-xs transition shadow focus-ring">
+            Check Constructions
+          </button>
+        </div>
+      </div>
+
+      <!-- PHASE F: APPLY (Paragraph Proofreading) -->
+      <div class="space-y-4 pt-4 border-t border-gray-100">
+        <h4 class="font-bold text-base text-ielts-navy border-b border-gray-150 pb-1">
+          Phase 6: Apply (IELTS Paragraph Proofreading)
+        </h4>
+        <p class="text-xs text-gray-500">
+          Instructions: The paragraphs below contain boundary errors that drag down cohesion and GRA scores. Correct the errors directly in the textboxes.
+        </p>
+
+        <!-- Apply Item 1 -->
+        <div class="bg-slate-50 border border-gray-200 rounded p-4 space-y-3">
+          <label for="apply-q1" class="text-xs font-bold text-ielts-blue block">Item 24: IELTS Writing Task 2 Context (2 hidden errors)</label>
+          <div class="text-xs text-slate-600 bg-white border border-gray-100 p-3 rounded leading-relaxed">
+            <span class="font-bold uppercase tracking-wider block text-[10px] text-slate-400 mb-1">Original Draft:</span>
+            "Many people argue that university education should be free. Because it benefits society as a whole. However, governments have limited budgets, they cannot fund every student."
+          </div>
+          <textarea id="apply-q1" rows="3" class="w-full bg-white border border-gray-300 rounded p-2 text-xs font-mono focus-ring" placeholder="Rewrite the paragraph correcting the two errors..."></textarea>
+          <div id="apply-q1-feedback" class="text-xs hidden p-3 rounded mt-2"></div>
+        </div>
+
+        <!-- Apply Item 2 -->
+        <div class="bg-slate-50 border border-gray-200 rounded p-4 space-y-3">
+          <label for="apply-q2" class="text-xs font-bold text-ielts-blue block">Item 25: IELTS Speaking Part 3 Context (2 hidden errors)</label>
+          <div class="text-xs text-slate-600 bg-white border border-gray-100 p-3 rounded leading-relaxed">
+            <span class="font-bold uppercase tracking-wider block text-[10px] text-slate-400 mb-1">Original Draft:</span>
+            "I believe that public parks are essential for city dwellers. They offer a place to relax, people can also exercise there. In my view, green spaces improve mental health."
+          </div>
+          <textarea id="apply-q2" rows="3" class="w-full bg-white border border-gray-300 rounded p-2 text-xs font-mono focus-ring" placeholder="Rewrite the paragraph correcting the two errors..."></textarea>
+          <div id="apply-q2-feedback" class="text-xs hidden p-3 rounded mt-2"></div>
+        </div>
+
+        <div class="flex justify-end pt-2">
+          <button id="check-apply-btn" class="bg-ielts-blue hover:bg-blue-700 text-white font-bold py-1.5 px-4 rounded text-xs transition shadow focus-ring">
+            Check Apply Set
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. IELTS TRANSFER TASK -->
+    <section id="transfer-section" class="locked-section bg-white rounded-xl shadow-sm border border-gray-200 p-6 space-y-6">
+      <!-- Locked Overlay -->
+      <div id="transfer-lock-overlay" class="locked-overlay absolute inset-0 flex flex-col items-center justify-center text-center p-6 z-10"></div>
+      
+      <div class="flex items-center gap-3 border-b border-gray-100 pb-4">
+        <span class="flex items-center justify-center bg-ielts-navy text-white text-sm font-bold w-8 h-8 rounded-full">6</span>
+        <div>
+          <h3 class="text-xl font-bold text-ielts-navy">IELTS Authentic Transfer Task</h3>
+          <p class="text-xs text-gray-500">Apply boundary mastery in a realistic IELTS Academic writing/speaking response (Item 26)</p>
+        </div>
+      </div>
+
+      <!-- Task Option Selector -->
+      <div class="flex gap-4 border-b border-gray-200">
+        <button id="btn-transfer-writing" class="py-2 px-4 border-b-2 border-ielts-blue text-sm font-bold text-ielts-blue focus-ring" onclick="switchTransferTab('writing')">
+          IELTS Writing Task 2 Prompt
+        </button>
+        <button id="btn-transfer-speaking" class="py-2 px-4 border-b-2 border-transparent text-sm font-medium text-slate-600 hover:text-ielts-blue focus-ring" onclick="switchTransferTab('speaking')">
+          IELTS Speaking Part 3 Prompt
+        </button>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <!-- Writing Area -->
+        <div class="space-y-4">
+          <div id="transfer-prompt-container" class="bg-gray-50 border border-gray-200 rounded p-4 text-xs leading-relaxed">
+            <!-- Injected by JS -->
+          </div>
+          
+          <div>
+            <label for="transfer-input" class="block text-xs font-bold text-slate-700 uppercase mb-1">Your Response:</label>
+            <textarea id="transfer-input" rows="6" class="w-full bg-white border border-gray-300 rounded p-3 text-sm focus-ring" placeholder="Write your paragraph here..."></textarea>
+            <div class="flex justify-between items-center text-xs text-slate-500 mt-1">
+              <span id="transfer-word-count">Words: 0</span>
+              <span>Focus on variety and accuracy.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Checklists & Evaluation -->
+        <div class="bg-slate-50 border border-gray-200 rounded-lg p-5 space-y-4">
+          <h4 class="font-bold text-xs text-slate-700 uppercase tracking-wider">Learner Self-Verification Checklist</h4>
+          
+          <div class="space-y-2.5 text-xs text-slate-700">
+            <label class="flex items-start gap-3 p-2 bg-white rounded border border-gray-100 hover:bg-gray-50 cursor-pointer">
+              <input type="checkbox" id="chk-transfer-1" class="mt-0.5 accent-ielts-blue">
+              <span>I have scanned for coordinating conjunctions (<em>and, but</em>) to ensure I didn't over-use them to join every idea.</span>
+            </label>
+            <label class="flex items-start gap-3 p-2 bg-white rounded border border-gray-100 hover:bg-gray-50 cursor-pointer">
+              <input type="checkbox" id="chk-transfer-2" class="mt-0.5 accent-ielts-blue">
+              <span>I have checked that no relative clauses (starting with <em>which</em>, <em>who</em>, <em>that</em>) are stranded as separate sentences.</span>
+            </label>
+            <label class="flex items-start gap-3 p-2 bg-white rounded border border-gray-100 hover:bg-gray-50 cursor-pointer">
+              <input type="checkbox" id="chk-transfer-3" class="mt-0.5 accent-ielts-blue">
+              <span>I have ensured that conjunctive adverbs (<em>however, therefore, furthermore</em>) linking clauses have a preceding semicolon or period.</span>
+            </label>
+            <label class="flex items-start gap-3 p-2 bg-white rounded border border-gray-100 hover:bg-gray-50 cursor-pointer">
+              <input type="checkbox" id="chk-transfer-4" class="mt-0.5 accent-ielts-blue">
+              <span>I have verified that every single sentence has a clear grammatical subject and verb.</span>
+            </label>
+          </div>
+
+          <div class="pt-2">
+            <button id="submit-transfer-btn" class="w-full bg-ielts-navy hover:bg-slate-800 text-white font-bold py-2 px-4 rounded text-xs transition shadow focus-ring">
+              Verify & Analyze Response
+            </button>
+          </div>
+
+          <!-- Analysis Feedback Box -->
+          <div id="transfer-analysis-box" class="hidden text-xs bg-white border border-gray-200 rounded p-4 space-y-3">
+            <h5 class="font-bold text-ielts-navy border-b border-gray-100 pb-1 flex items-center justify-between">
+              <span>Grammatical Analysis Metrics</span>
+              <span id="transfer-status-badge" class="bg-emerald-100 text-emerald-800 text-[9px] px-2 py-0.5 rounded uppercase font-bold">Processed</span>
+            </h5>
+            <div class="grid grid-cols-2 gap-2 text-[11px]">
+              <div class="bg-slate-50 p-2 rounded">
+                <span class="block text-slate-500">Sentence Count</span>
+                <strong id="metric-sentences" class="text-sm font-bold text-ielts-blue">0</strong>
+              </div>
+              <div class="bg-slate-50 p-2 rounded">
+                <span class="block text-slate-500">Avg. Clause Length</span>
+                <strong id="metric-avg-length" class="text-sm font-bold text-ielts-blue">0.0 words</strong>
+              </div>
+            </div>
+            <div id="analysis-warning-box" class="hidden p-2.5 rounded bg-amber-50 border-l-4 border-amber-500 text-amber-900 leading-normal">
+              <strong>Coaching Observation:</strong> Potential boundary failure or repetition detected in your response. Read the Model Answers to self-assess.
+            </div>
+            <!-- Model Answer Accordion -->
+            <details class="bg-emerald-50 border border-emerald-100 rounded p-2">
+              <summary class="font-bold text-emerald-950 cursor-pointer select-none">View Band 7.0+ Comparison Model</summary>
+              <div class="mt-2 text-xs text-emerald-900 italic leading-relaxed border-t border-emerald-200/50 pt-2" id="transfer-model-display">
+                <!-- Injected by JS -->
+              </div>
+            </details>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. TEACH-BACK EXIT TICKET (NEW SECTION) -->
+    <section id="exit-ticket-section" class="locked-section bg-white rounded-xl shadow-sm border border-gray-200 p-6 space-y-6">
+      <div id="exit-ticket-lock-overlay" class="locked-overlay absolute inset-0 flex flex-col items-center justify-center text-center p-6 z-10"></div>
+      
+      <div class="flex items-center gap-3 border-b border-gray-100 pb-4">
+        <span class="flex items-center justify-center bg-ielts-navy text-white text-sm font-bold w-8 h-8 rounded-full">7</span>
+        <div>
+          <h3 class="text-xl font-bold text-ielts-navy">Teach-back Exit Ticket</h3>
+          <p class="text-xs text-gray-500">Act as the IELTS coach to solidify your grasp of sentence structures (2 items)</p>
+        </div>
+      </div>
+
+      <div class="space-y-6">
+        <!-- Exit Item 1 -->
+        <div class="bg-slate-50 border border-gray-200 rounded p-4 space-y-3">
+          <span class="text-xs font-bold text-ielts-blue block">Item 27: Classmate Coaching Scenario</span>
+          <p class="text-sm font-medium italic text-slate-800">
+            A classmate writes in their draft: "International tourism raises awareness of different cultures. But it leads to commercialization of historical sites." They ask why their teacher marked "But..." as a fragment. What is your advice?
+          </p>
+          <div class="space-y-2 text-xs">
+            <label class="flex items-start gap-3 p-2 bg-white border border-gray-100 rounded hover:bg-gray-100 cursor-pointer">
+              <input type="radio" name="exit-q1" value="A" class="mt-0.5 accent-ielts-blue">
+              <span><strong>A.</strong> "You shouldn't start sentences with 'But' in academic writing because it is a coordinating conjunction, which creates a coordinating fragment. You should connect the clauses with a comma, or use 'However' preceded by a period."</span>
+            </label>
+            <label class="flex items-start gap-3 p-2 bg-white border border-gray-100 rounded hover:bg-gray-100 cursor-pointer">
+              <input type="radio" name="exit-q1" value="B" class="mt-0.5 accent-ielts-blue">
+              <span><strong>B.</strong> "Replace 'But' with 'Although' and leave it as a separate sentence. This will automatically make it a complex sentence."</span>
+            </label>
+            <label class="flex items-start gap-3 p-2 bg-white border border-gray-100 rounded hover:bg-gray-100 cursor-pointer">
+              <input type="radio" name="exit-q1" value="C" class="mt-0.5 accent-ielts-blue">
+              <span><strong>C.</strong> "Coordinating conjunctions are prohibited in IELTS academic writing; you should replace all instances of 'but' and 'and' with formal adverbs."</span>
+            </label>
+            <label class="flex items-start gap-3 p-2 bg-white border border-gray-100 rounded hover:bg-gray-100 cursor-pointer">
+              <input type="radio" name="exit-q1" value="D" class="mt-0.5 accent-ielts-blue">
+              <span><strong>D.</strong> "You should add a semicolon before 'But' and keep the capital 'B'. That maintains a strong formal outline."</span>
+            </label>
+          </div>
+          <div id="exit-q1-feedback" class="text-xs hidden p-3 rounded"></div>
+        </div>
+
+        <!-- Exit Item 2 -->
+        <div class="bg-slate-50 border border-gray-200 rounded p-4 space-y-3">
+          <span class="text-xs font-bold text-ielts-blue block">Item 28: General Rule Coaching</span>
+          <p class="text-sm font-medium italic text-slate-800">
+            A classmate asks: "Is it ever acceptable to use a comma alone to join two independent clauses in formal academic writing?" How do you explain the rule?
+          </p>
+          <div class="space-y-2 text-xs">
+            <label class="flex items-start gap-3 p-2 bg-white border border-gray-100 rounded hover:bg-gray-100 cursor-pointer">
+              <input type="radio" name="exit-q2" value="A" class="mt-0.5 accent-ielts-blue">
+              <span><strong>A.</strong> "Yes, it is acceptable if the clauses are short and directly related to the same academic subject."</span>
+            </label>
+            <label class="flex items-start gap-3 p-2 bg-white border border-gray-100 rounded hover:bg-gray-100 cursor-pointer">
+              <input type="radio" name="exit-q2" value="B" class="mt-0.5 accent-ielts-blue">
+              <span><strong>B.</strong> "No. Joining independent clauses with only a comma creates a 'comma splice'. You must either split them with a period, use a semicolon, or add a coordinating conjunction (FANBOYS) after the comma."</span>
+            </label>
+            <label class="flex items-start gap-3 p-2 bg-white border border-gray-100 rounded hover:bg-gray-100 cursor-pointer">
+              <input type="radio" name="exit-q2" value="C" class="mt-0.5 accent-ielts-blue">
+              <span><strong>C.</strong> "Yes, because commas represent a spoken pause, which makes them grammatically sufficient boundaries in formal essays."</span>
+            </label>
+            <label class="flex items-start gap-3 p-2 bg-white border border-gray-100 rounded hover:bg-gray-100 cursor-pointer">
+              <input type="radio" name="exit-q2" value="D" class="mt-0.5 accent-ielts-blue">
+              <span><strong>D.</strong> "No, because commas should never be used to separate ideas in academic paragraphs; you should use semicolons exclusively."</span>
+            </label>
+          </div>
+          <div id="exit-q2-feedback" class="text-xs hidden p-3 rounded"></div>
+        </div>
+
+        <div class="flex justify-end pt-2">
+          <button id="submit-exit-btn" class="bg-ielts-blue hover:bg-blue-700 text-white font-bold py-1.5 px-4 rounded text-xs transition shadow focus-ring">
+            Submit Exit Ticket
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. REVIEW DASHBOARD -->
+    <section id="dashboard-section" class="locked-section bg-white rounded-xl shadow-sm border border-gray-200 p-6 space-y-6">
+      <!-- Locked Overlay -->
+      <div id="dashboard-lock-overlay" class="locked-overlay absolute inset-0 flex flex-col items-center justify-center text-center p-6 z-10"></div>
+      
+      <div class="flex items-center gap-3 border-b border-gray-100 pb-4">
+        <span class="flex items-center justify-center bg-ielts-navy text-white text-sm font-bold w-8 h-8 rounded-full">8</span>
+        <div>
+          <h3 class="text-xl font-bold text-ielts-navy">Review Dashboard & Next Steps</h3>
+          <p class="text-xs text-gray-500">Tracking accuracy metrics by boundary error category</p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Error Taxonomy Breakdown -->
+        <div class="border border-gray-200 rounded-lg p-5 space-y-4">
+          <h4 class="font-bold text-sm text-ielts-navy uppercase tracking-wider">Grammar Error Taxonomy Breakdown</h4>
+          <div class="space-y-3 text-xs">
+            <!-- Comma Splice Metric -->
+            <div class="space-y-1">
+              <div class="flex justify-between font-medium">
+                <span>Comma Splices</span>
+                <span id="tax-comma-splice-pct" class="font-bold text-ielts-blue">0%</span>
+              </div>
+              <div class="w-full bg-gray-200 rounded-full h-2">
+                <div id="tax-comma-splice-bar" class="bg-ielts-blue h-2 rounded-full" style="width: 0%"></div>
+              </div>
+            </div>
+
+            <!-- Fragment Metric -->
+            <div class="space-y-1">
+              <div class="flex justify-between font-medium">
+                <span>Sentence Fragments</span>
+                <span id="tax-fragment-pct" class="font-bold text-ielts-crimson">0%</span>
+              </div>
+              <div class="w-full bg-gray-200 rounded-full h-2">
+                <div id="tax-fragment-bar" class="bg-ielts-crimson h-2 rounded-full" style="width: 0%"></div>
+              </div>
+            </div>
+
+            <!-- Run-on Metric -->
+            <div class="space-y-1">
+              <div class="flex justify-between font-medium">
+                <span>Run-on Sentences</span>
+                <span id="tax-run-on-pct" class="font-bold text-ielts-amber">0%</span>
+              </div>
+              <div class="w-full bg-gray-200 rounded-full h-2">
+                <div id="tax-run-on-bar" class="bg-ielts-amber h-2 rounded-full" style="width: 0%"></div>
+              </div>
+            </div>
+
+            <!-- Correct Sentence Metric -->
+            <div class="space-y-1">
+              <div class="flex justify-between font-medium">
+                <span>Control Base (Correct Identification)</span>
+                <span id="tax-correct-pct" class="font-bold text-ielts-emerald">0%</span>
+              </div>
+              <div class="w-full bg-gray-200 rounded-full h-2">
+                <div id="tax-correct-bar" class="bg-ielts-emerald h-2 rounded-full" style="width: 0%"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-4 pt-3 border-t border-gray-150 flex items-center justify-between text-xs">
+            <span class="text-slate-500">Session Accuracy:</span>
+            <span id="session-accuracy-badge" class="font-black text-ielts-navy bg-ielts-lightBlue px-2.5 py-1 rounded text-[11px]">--</span>
+          </div>
+        </div>
+
+        <!-- Personalised adaptive next step panel -->
+        <div class="border border-gray-200 rounded-lg p-5 flex flex-col justify-between">
+          <div>
+            <h4 class="font-bold text-sm text-ielts-navy uppercase tracking-wider">Personalised Remediations</h4>
+            <div id="next-steps-content" class="text-xs text-slate-600 mt-3 space-y-2 leading-relaxed">
+              <p>Your practice responses will generate targeted studies here. We focus on stabilizing your weakest structural boundary type.</p>
+            </div>
+          </div>
+          <div class="mt-6 pt-3 border-t border-gray-200 text-[10px] text-slate-400">
+            *Remediations adjust in real-time as you submit answers across all practice sets.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10. PRINTABLE ANSWER KEY & RATIONALES (Toggleable, and visible in print) -->
+    <section class="bg-white rounded-xl shadow-sm border border-gray-200 p-6 space-y-4">
+      <div class="flex items-center justify-between border-b border-gray-100 pb-3">
+        <h3 class="text-lg font-bold text-ielts-navy">
+          <i class="fa-solid fa-key mr-2 text-ielts-blue"></i>Teacher Answer Key & Feedback Scripts
+        </h3>
+        <button id="toggle-key-btn" class="no-print bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold py-1.5 px-4 rounded transition focus-ring" aria-label="Toggle visibility of the answer key">
+          Toggle View
+        </button>
+      </div>
+
+      <div id="answer-key-container" class="hidden text-xs space-y-6 text-slate-700 leading-relaxed">
+        
+        <div class="bg-ielts-lightBlue border-l-4 border-ielts-blue p-4 rounded-r-lg">
+          <p class="text-xs text-ielts-navy font-semibold">
+            <i class="fa-solid fa-circle-info mr-2"></i>Note to Teachers:
+          </p>
+          <p class="text-[11px] text-slate-700 mt-1">
+            This key contains standard rationales, correct answers, and suggested teacher feedback language to support adult candidates moving from Band 4.0 (partial control) to Band 7.0 (consistent control of complex and compound sentences).
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div>
+            <h4 class="font-bold text-sm text-ielts-navy border-b border-gray-100 pb-1.5 uppercase mb-3">Diagnostic & Notice Items</h4>
+            <ul class="space-y-4">
+              <li>
+                <strong class="text-ielts-blue">Item 1 (Diagnostic):</strong> Sentence Fragment.
+                <br><span class="text-[11px] text-slate-500">Rationale: 'Although' creates a dependent modifier clause; it stands alone here, which is a fragment. Connect it to a main clause.</span>
+              </li>
+              <li>
+                <strong class="text-ielts-blue">Item 2 (Diagnostic):</strong> Comma Splice.
+                <br><span class="text-[11px] text-slate-500">Rationale: Fuses two independent clauses with only a comma. Add a coordinating conjunction or separate with a semicolon.</span>
+              </li>
+              <li>
+                <strong class="text-ielts-blue">Item 3 (Diagnostic):</strong> Run-on Sentence.
+                <br><span class="text-[11px] text-slate-500">Rationale: Conjunctive adverbs like 'therefore' cannot connect clauses without a preceding semicolon or period.</span>
+              </li>
+              <li>
+                <strong class="text-ielts-blue">Item 4 (Diagnostic):</strong> Sentence Fragment.
+                <br><span class="text-[11px] text-slate-500">Rationale: Lacks a main subject and verb structure, stranded in dependency.</span>
+              </li>
+              <li>
+                <strong class="text-ielts-blue">Item 5 (Diagnostic):</strong> Correct structure.
+                <br><span class="text-[11px] text-slate-500">Rationale: A clean dependent clause introduced by 'While', followed by a separating comma and an independent clause.</span>
+              </li>
+              <li>
+                <strong class="text-ielts-blue">Item 6 (Notice):</strong> Error at index 5 (comma splice on "rise,").
+                <br><span class="text-[11px] text-slate-500">Rationale: Comma splice immediately before the transition 'however'.</span>
+              </li>
+              <li>
+                <strong class="text-ielts-blue">Item 7 (Notice):</strong> Error at index 0 ("Despite").
+                <br><span class="text-[11px] text-slate-500">Rationale: Prepositional phrase stranded as an independent clause.</span>
+              </li>
+              <li>
+                <strong class="text-ielts-blue">Item 8 (Notice):</strong> Error at index 6 ("memory").
+                <br><span class="text-[11px] text-slate-500">Rationale: Run-on. Two independent thoughts fused with no boundary indicator.</span>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="font-bold text-sm text-ielts-navy border-b border-gray-100 pb-1.5 uppercase mb-3">Choice & Misconception Keys</h4>
+            <ul class="space-y-4">
+              <li>
+                <strong class="text-ielts-blue">Item 9 (Choose):</strong> B.
+                <br><span class="text-[11px] text-slate-500">Rationale: Uses 'Although' to form a complex sentence, avoiding a splice.</span>
+              </li>
+              <li>
+                <strong class="text-ielts-blue">Item 10 (Choose):</strong> A.
+                <br><span class="text-[11px] text-slate-500">Rationale: Integrates the fragment with a comma and relative pronoun 'which'.</span>
+              </li>
+              <li>
+                <strong class="text-ielts-blue">Item 11 (Choose):</strong> B.
+                <br><span class="text-[11px] text-slate-500">Rationale: Correct use of a semicolon before the conjunctive adverb 'therefore'.</span>
+              </li>
+              <li>
+                <strong class="text-ielts-blue">Item 12 (Misconception):</strong> C.
+                <br><span class="text-[11px] text-slate-500">Rationale: Comma splices frequently occur when learners treat transition words as coordinators.</span>
+              </li>
+              <li>
+                <strong class="text-ielts-blue">Item 13 (Misconception):</strong> B.
+                <br><span class="text-[11px] text-slate-500">Rationale: Subordinated structures are dependent regardless of length.</span>
+              </li>
+              <li>
+                <strong class="text-ielts-blue">Item 14 (Misconception):</strong> B.
+                <br><span class="text-[11px] text-slate-500">Rationale: Joining independent clauses with coordinators requires a preceding comma in academic registers.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="border-t border-gray-250 pt-4">
+          <h4 class="font-bold text-sm text-ielts-navy uppercase mb-3">Repair, Produce & Guided Construction Models</h4>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <ul class="space-y-3">
+              <li>
+                <strong class="text-ielts-blue">Item 15 (Repair):</strong> "Tourism brings economic benefits; however, it can also damage local ecosystems." (Or using: ", but..." or "Although tourism...")
+              </li>
+              <li>
+                <strong class="text-ielts-blue">Item 16 (Repair):</strong> "Since organic farming avoids synthetic chemicals, it causes less harm to the environment."
+              </li>
+              <li>
+                <strong class="text-ielts-blue">Item 17 (Repair):</strong> "Robots are performing repetitive factory tasks; furthermore, they are highly efficient." (Or using: ", and they..." / "; they...")
+              </li>
+              <li>
+                <strong class="text-ielts-blue">Item 18 (Produce):</strong> "Although online education offers flexibility, it requires strong self-discipline."
+              </li>
+              <li>
+                <strong class="text-ielts-blue">Item 19 (Produce):</strong> "The research team faced budget cuts, but they completed the project on time."
+              </li>
+            </ul>
+            <ul class="space-y-3">
+              <li>
+                <strong class="text-ielts-blue">Item 20 (Produce):</strong> "Governments should subsidize public transit, which would reduce urban traffic congestion."
+              </li>
+              <li>
+                <strong class="text-ielts-blue">Item 21 (Construction):</strong> "Although solar power is clean, it remains expensive to store."
+              </li>
+              <li>
+                <strong class="text-ielts-blue">Item 22 (Construction):</strong> "Public transport is subsidized; therefore, commuters continue to drive."
+              </li>
+              <li>
+                <strong class="text-ielts-blue">Item 23 (Construction):</strong> "The government introduced new scholarship programs, which helped low-income students attend university."
+              </li>
+              <li>
+                <strong class="text-ielts-blue">Item 24 (Apply):</strong> "...free because it benefits... budgets, so they cannot..." (or "; they cannot")
+              </li>
+              <li>
+                <strong class="text-ielts-blue">Item 25 (Apply):</strong> "...dwellers. They offer a place to relax, and people can..." (or "; people can")
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="border-t border-gray-250 pt-4">
+          <h4 class="font-bold text-sm text-ielts-navy uppercase mb-2">Authentic Exit Tickets</h4>
+          <ul class="space-y-2">
+            <li><strong>Item 27:</strong> A (Starting sentences with coordinating conjunctions 'But' creates coordinates fragments in formal texts).</li>
+            <li><strong>Item 28:</strong> B (Commas require coordinating conjunctions to join clauses; otherwise, they generate comma splices).</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- PRINT ONLY FOOTER -->
+  <footer class="print-only hidden border-t border-gray-300 pt-4 mt-8 text-center text-xs text-gray-500">
+    <p>Completed IELTS Grammar Lab: Sentence Boundaries (Band 4.0 to 7.0 calibration)</p>
+    <p>All items checked and validated. Teacher Answer Key included.</p>
+  </footer>
+
+  <!-- BOTTOM FOOTER (no-print) -->
+  <footer class="no-print bg-slate-900 text-gray-400 py-6 px-6 mt-12 text-center text-xs border-t border-slate-800">
+    <div class="max-w-7xl mx-auto space-y-2">
+      <p>&copy; 2026 IELTS Grammar Lab. Built for productive skills growth.</p>
+      <p class="text-[10px] text-slate-500">IELTS is a registered trademark of University of Cambridge ESOL, the British Council, and IDP Education Australia, which are not affiliated with this training tool.</p>
+    </div>
+  </footer>
+
+  <!-- JAVASCRIPT LOGIC AND STATE ENGINE -->
+  <script>
+    // ----------------------------------------------------
+    // QUESTION DATABASES & GRAMMATICAL DATA
+    // ----------------------------------------------------
+
+    const NOTICE_DATA = [
+      {
+        id: 6,
+        text: "The graph shows a sharp rise, however, the table indicates a decline.",
+        tokens: ["The", "graph", "shows", "a", "sharp", "rise,", "however,", "the", "table", "indicates", "a", "decline."],
+        errorIndex: 5, // "rise," (comma splice) or "however,"
+        rationale: "The comma splice error occurs immediately at the comma separating 'rise' and 'however'. Because 'however' is a conjunctive adverb, a semicolon or period is required instead of a comma."
+      },
+      {
+        id: 7,
+        text: "Despite the government implementing new taxes on single-use plastics.",
+        tokens: ["Despite", "the", "government", "implementing", "new", "taxes", "on", "single-use", "plastics."],
+        errorIndex: 0, // "Despite"
+        rationale: "This entire sentence is a fragment because 'Despite' turns the unit into a prepositional phrase. There is no independent main clause containing a finite verb."
+      },
+      {
+        id: 8,
+        text: "Research has shown that exercise improves memory it also reduces stress.",
+        tokens: ["Research", "has", "shown", "that", "exercise", "improves", "memory", "it", "also", "reduces", "stress."],
+        errorIndex: 6, // "memory"
+        rationale: "This is a run-on sentence. The independent clause 'exercise improves memory' and 'it also reduces stress' are joined with no punctuation at all. A separator is needed after 'memory'."
+      }
+    ];
+
+    const CHOOSE_DATA = {
+      9: {
+        correct: 'B',
+        rationales: {
+          A: "Incorrect. This is a comma splice. You cannot link two independent clauses with only a comma without a coordinating conjunction.",
+          B: "Correct! The subordinating conjunction 'Although' turns the first clause into a dependent modifier, resolving the boundary conflict.",
+          C: "Incorrect. Fused run-on sentence. Lacks all transition markers or punctuation between the independent clauses.",
+          D: "Incorrect. Comma splice. 'However' is a conjunctive adverb and cannot link independent clauses using a simple comma."
+        }
+      },
+      10: {
+        correct: 'A',
+        rationales: {
+          A: "Correct! The comma and relative pronoun 'which' correctly introduce a non-restrictive relative clause.",
+          B: "Incorrect. For non-restrictive elements (adding extra explanation), a separating comma is grammatically mandatory.",
+          C: "Incorrect. Comma splice. 'This' is a pronoun, not a connector, so joining with a comma alone creates an error.",
+          D: "Incorrect. The relative clause 'Which reduces reliance on coal' remains a fragment when capitalized as a separate sentence."
+        }
+      },
+      11: {
+        correct: 'B',
+        rationales: {
+          A: "Incorrect. Comma splice. 'Therefore' is a transition adverb and cannot link two full clauses with just a comma.",
+          B: "Correct! Semicolon correctly establishes the clause boundaries before the conjunctive adverb 'therefore'.",
+          C: "Incorrect. Confuses meaning. 'Although' implies contrast, but infrastructure upgrading is a direct result of expansion.",
+          D: "Incorrect. Combining 'and' with 'therefore' creates wordiness and grammatical redundancy in academic writing."
+        }
+      }
+    };
+
+    const MISCON_DATA = {
+      12: {
+        correct: 'C',
+        rationales: {
+          A: "Incorrect. 'However' is a conjunctive adverb, not a coordinating conjunction like 'but'. It cannot link clauses with a comma alone.",
+          B: "Incorrect. The second clause has a clear subject and verb, meaning it functions as a complete independent clause, not a fragment.",
+          C: "Correct! Two independent clauses are joined only by a comma before 'however', producing a comma splice.",
+          D: "Incorrect. Commas should reflect syntactic structure, not physical pauses alone. Commas cannot join clauses before conjunctive adverbs."
+        }
+      },
+      13: {
+        correct: 'B',
+        rationales: {
+          A: "Incorrect. Sentence length does not guarantee grammatical completion. Even a long list of actions starting with a subordinator is a fragment without a main clause.",
+          B: "Correct! Starting with the subordinator 'Although' makes the entire unit dependent. It requires an independent clause to form a complete sentence.",
+          C: "Incorrect. It is a fragment, not a run-on. It lacks a main clause rather than fusing two main clauses.",
+          D: "Incorrect. The phrase 'including a...' is a participial modifier, not a main verb."
+        }
+      },
+      14: {
+        correct: 'B',
+        rationales: {
+          A: "Incorrect. In formal writing, joining two independent clauses with a coordinator like 'and' requires a preceding comma to avoid a run-on text flow.",
+          B: "Correct! A separating comma must precede the coordinating conjunction (FANBOYS) when it joins two independent clauses.",
+          C: "Incorrect. Semicolons are not placed directly after coordinating conjunctions.",
+          D: "Incorrect. Placing a comma between the subject 'remote work' and the verb 'improves' violates subject-verb linkage."
+        }
+      }
+    };
+
+    const REPAIR_DATA = {
+      15: {
+        accepted: [
+          /tourism brings economic benefits; however, it can also damage/i,
+          /tourism brings economic benefits, but it can also damage/i,
+          /although tourism brings economic benefits, it can also damage/i,
+          /tourism brings economic benefits. it can also damage/i,
+          /tourism brings economic benefits; it can also damage/i,
+          /while tourism brings economic benefits, it can also damage/i
+        ],
+        model: "Tourism brings economic benefits; however, it can also damage local ecosystems."
+      },
+      16: {
+        accepted: [
+          /since organic farming avoids synthetic chemicals, it causes less harm/i,
+          /since organic farming avoids synthetic chemicals, biodiversity is/i,
+          /organic farming avoids synthetic chemicals/i,
+          /since organic farming avoids synthetic chemicals, it is/i,
+          /since organic farming avoids synthetic chemicals, it protects/i
+        ],
+        model: "Since organic farming avoids synthetic chemicals, it is generally considered better for the environment."
+      },
+      17: {
+        accepted: [
+          /robots are performing repetitive factory tasks, and they are highly efficient/i,
+          /robots are performing repetitive factory tasks; they are highly efficient/i,
+          /because robots are performing repetitive factory tasks, they are highly efficient/i,
+          /robots are performing repetitive factory tasks; furthermore, they are highly efficient/i,
+          /robots are performing repetitive factory tasks. they are highly efficient/i
+        ],
+        model: "Robots are performing repetitive factory tasks; furthermore, they are highly efficient."
+      }
+    };
+
+    const PRODUCE_DATA = {
+      18: {
+        accepted: [
+          /although online education offers flexibility, it requires strong self-discipline/i,
+          /online education requires strong self-discipline, although it offers flexibility/i,
+          /although online education offers flexibility it requires strong self-discipline/i
+        ],
+        model: "Although online education offers flexibility, it requires strong self-discipline."
+      },
+      19: {
+        accepted: [
+          /the research team faced budget cuts, but they completed the project on time/i,
+          /the research team faced budget cuts but completed the project on time/i
+        ],
+        model: "The research team faced budget cuts, but they completed the project on time."
+      },
+      20: {
+        accepted: [
+          /governments should subsidize public transit, which would reduce urban traffic congestion/i,
+          /governments should subsidize public transit, which reduces urban traffic congestion/i
+        ],
+        model: "Governments should subsidize public transit, which would reduce urban traffic congestion."
+      }
+    };
+
+    const CONSTRUCT_DATA = {
+      1: { a: "Although", b: "solar power is clean,", c: "it remains expensive to store.", model: "Although solar power is clean, it remains expensive to store." },
+      2: { a: "Public transport is subsidized;", b: "therefore,", c: "commuters continue to drive.", model: "Public transport is subsidized; therefore, commuters continue to drive." },
+      3: { a: "The government introduced new scholarship programs,", b: "which", c: "helped low-income students attend university.", model: "The government introduced new scholarship programs, which helped low-income students attend university." }
+    };
+
+    const APPLY_DATA = {
+      24: {
+        accepted: [
+          /university education should be free because it benefits society.*governments have limited budgets, so they cannot/i,
+          /university education should be free because it benefits society.*governments have limited budgets; they cannot/i,
+          /university education should be free because it benefits society.*governments have limited budgets. they cannot/i,
+          /university education should be free, because it benefits society.*governments have limited budgets; therefore, they cannot/i
+        ],
+        model: "Many people argue that university education should be free because it benefits society as a whole. However, governments have limited budgets, so they cannot fund every student."
+      },
+      25: {
+        accepted: [
+          /parks are essential for city dwellers.*offer a place to relax, and people can/i,
+          /parks are essential for city dwellers.*offer a place to relax; people can/i,
+          /parks are essential for city dwellers.*offer a place to relax. people can/i,
+          /parks are essential for city dwellers.*offer a place to relax; moreover, people can/i
+        ],
+        model: "I believe that public parks are essential for city dwellers. They offer a place to relax, and people can also exercise there. In my view, green spaces improve mental health."
+      }
+    };
+
+    const TRANSFER_PROMPTS = {
+      writing: {
+        title: "IELTS Writing Task 2 Prompt",
+        prompt: "<strong>Essay Prompt:</strong> 'Some people believe that university education should focus purely on practical skills, while others argue it should focus on academic theory. Discuss both views and give your opinion.'<br><span class='text-slate-500 font-semibold block mt-1'>Write one clear body paragraph (approx 50-80 words) contrasting these viewpoints. Ensure zero boundary errors.</span>",
+        model: "Proponents of vocational study argue that universities should prioritize practical skills, as this directly prepares graduates for the workforce. However, advocates of academic theory claim that higher education must cultivate critical thinking, which is a resource that remains valuable throughout a career. In my view, both aspects are essential; therefore, institutions should design balanced curricula."
+      },
+      speaking: {
+        title: "IELTS Speaking Part 3 Prompt",
+        prompt: "<strong>Discussion Prompt:</strong> 'How has the way people communicate changed with the rise of digital technology?'<br><span class='text-slate-500 font-semibold block mt-1'>Write a detailed speaking response (approx 3-5 sentences). Focus on joining ideas smoothly and cleanly.</span>",
+        model: "Undeniably, digital communication has increased the speed at which we share ideas, but it has also reduced face-to-face contact. In the past, people relied on local letters and landlines; now, instant messaging enables global connections. Although this technology makes communication convenient, it sometimes weakens interpersonal bonds."
+      }
+    };
+
+    const EXIT_TICKET_DATA = {
+      27: {
+        correct: 'A',
+        rationales: {
+          A: "Correct! Starting a sentence with a coordinating conjunction like 'But' creates a coordinating fragment in formal essays. The clauses should be linked, or a transitional adverb like 'However' used instead.",
+          B: "Incorrect. Replacing 'But' with 'Although' and keeping it as a separate sentence creates another fragment, since 'Although' creates a dependent clause.",
+          C: "Incorrect. Coordinating conjunctions are perfectly acceptable in academic IELTS writing, provided they link clauses inside a single sentence.",
+          D: "Incorrect. Semicolons cannot separate capital letters that represent new sentences, and placing them before 'But' is grammatically incorrect."
+        }
+      },
+      28: {
+        correct: 'B',
+        rationales: {
+          A: "Incorrect. The length or subject of a sentence does not bypass comma rules; splicing clauses with a comma alone remains a boundary error.",
+          B: "Correct! Linking independent clauses with commas alone creates a comma splice. To resolve it, pair the comma with a coordinating conjunction, or use a semicolon or period.",
+          C: "Incorrect. Commas act as structural syntactical dividers, not just indicators of spoken pauses. They lack the structural weight to separate independent clauses alone.",
+          D: "Incorrect. Commas are extensively used in academic writing to mark boundaries of introductory or dependent clauses. Semicolons are not the exclusive boundary marker."
+        }
+      }
+    };
+
+    // ----------------------------------------------------
+    // GLOBAL STATE MANAGEMENT
+    // ----------------------------------------------------
+
+    let state = {
+      diagnosticCompleted: false,
+      diagnosticAnswers: [null, null, null, null, null],
+      diagnosticConfidence: [3, 3, 3, 3, 3],
+      diagnosticChecked: false,
+      
+      misconceptionAnswers: [null, null, null],
+      misconceptionChecked: false,
+
+      practiceNoticeAnswers: [null, null, null],
+      practiceNoticeChecked: false,
+      
+      practiceChooseAnswers: [null, null, null],
+      practiceChooseChecked: false,
+      
+      practiceRepairAnswers: ["", "", ""],
+      practiceRepairChecked: false,
+      
+      practiceProduceAnswers: ["", "", ""],
+      practiceProduceChecked: false,
+      
+      guidedConstructionAnswers: [
+        ["", "", ""],
+        ["", "", ""],
+        ["", "", ""]
+      ],
+      guidedConstructionChecked: false,
+
+      practiceApplyAnswers: ["", ""],
+      practiceApplyChecked: false,
+      
+      transferText: "",
+      transferOption: "writing",
+      transferCheckedList: [false, false, false, false],
+      transferSubmitted: false,
+
+      exitTicketAnswers: [null, null],
+      exitTicketChecked: false,
+
+      // Track accuracy per error type
+      accuracy: {
+        commaSplice: { correct: 0, total: 0 },
+        fragment: { correct: 0, total: 0 },
+        runOn: { correct: 0, total: 0 },
+        correctSentence: { correct: 0, total: 0 }
+      }
+    };
+
+    // Load from localStorage if present
+    function loadState() {
+      const saved = localStorage.getItem('ielts_grammar_lab_state_boundaries');
+      if (saved) {
+        try {
+          state = JSON.parse(saved);
+          syncUIWithState();
+        } catch (e) {
+          console.error("Failed to parse state", e);
+        }
+      }
+    }
+
+    function saveState() {
+      localStorage.setItem('ielts_grammar_lab_state_boundaries', JSON.stringify(state));
+    }
+
+    // ----------------------------------------------------
+    // UI INITIALIZATION AND HANDLERS
+    // ----------------------------------------------------
+
+    document.addEventListener("DOMContentLoaded", () => {
+      // Notice dynamic setup
+      setupNoticeSections();
+
+      // Check initial locked states
+      loadState();
+
+      // Bind events
+      document.getElementById("start-lab-btn").addEventListener("click", unlockDiagnostic);
+      document.getElementById("submit-diagnostic-btn").addEventListener("click", checkDiagnostic);
+      document.getElementById("reset-lab-btn").addEventListener("click", resetLab);
+      document.getElementById("toggle-key-btn").addEventListener("click", toggleAnswerKey);
+      
+      document.getElementById("check-miscon-btn").addEventListener("click", checkMisconceptionSet);
+      document.getElementById("check-notice-btn").addEventListener("click", checkNoticeSet);
+      document.getElementById("check-choose-btn").addEventListener("click", checkChooseSet);
+      document.getElementById("check-repair-btn").addEventListener("click", checkRepairSet);
+      document.getElementById("check-produce-btn").addEventListener("click", checkProduceSet);
+      document.getElementById("check-construct-btn").addEventListener("click", checkConstructionSet);
+      document.getElementById("check-apply-btn").addEventListener("click", checkApplySet);
+      document.getElementById("submit-exit-btn").addEventListener("click", checkExitTicketSet);
+      
+      document.getElementById("submit-transfer-btn").addEventListener("click", processTransferTask);
+      document.getElementById("transfer-input").addEventListener("input", (e) => {
+        state.transferText = e.target.value;
+        updateWordCount(e.target.value);
+        saveState();
+      });
+
+      // Watch diagnostic inputs to enable check button
+      const diagSelects = ["diag-q1-ans", "diag-q2-ans", "diag-q3-ans", "diag-q4-ans", "diag-q5-ans"];
+      diagSelects.forEach((id, idx) => {
+        const select = document.getElementById(id);
+        select.addEventListener("change", (e) => {
+          state.diagnosticAnswers[idx] = e.target.value || null;
+          saveState();
+          validateDiagnosticFormCompletion();
+        });
+        
+        // Confidence sliders
+        const slider = document.getElementById(`diag-q${idx+1}-conf`);
+        slider.addEventListener("input", (e) => {
+          state.diagnosticConfidence[idx] = parseInt(e.target.value);
+          saveState();
+        });
+      });
+
+      // Misconceptions radios watch
+      const misconRadios = ["miscon-q1", "miscon-q2", "miscon-q3"];
+      misconRadios.forEach((name, idx) => {
+        document.querySelectorAll(`input[name="${name}"]`).forEach(r => {
+          r.addEventListener("change", (e) => {
+            state.misconceptionAnswers[idx] = e.target.value;
+            saveState();
+          });
+        });
+      });
+
+      // Exit ticket radios watch
+      const exitRadios = ["exit-q1", "exit-q2"];
+      exitRadios.forEach((name, idx) => {
+        document.querySelectorAll(`input[name="${name}"]`).forEach(r => {
+          r.addEventListener("change", (e) => {
+            state.exitTicketAnswers[idx] = e.target.value;
+            saveState();
+          });
+        });
+      });
+
+      // Transfer Checkboxes
+      for (let i = 1; i <= 4; i++) {
+        const chk = document.getElementById(`chk-transfer-${i}`);
+        chk.addEventListener("change", (e) => {
+          state.transferCheckedList[i-1] = e.target.checked;
+          saveState();
+        });
+      }
+
+      // Initial validation of forms
+      validateDiagnosticFormCompletion();
+      switchTransferTab(state.transferOption);
+      updateDashboard();
+      updateConstructPreview(1);
+      updateConstructPreview(2);
+      updateConstructPreview(3);
+    });
+
+    // ----------------------------------------------------
+    // WORKFLOW CORE OPERATIONS
+    // ----------------------------------------------------
+
+    function unlockDiagnostic() {
+      // Enable diagnostic inputs
+      const elements = ["diag-q1-ans", "diag-q2-ans", "diag-q3-ans", "diag-q4-ans", "diag-q5-ans",
+                        "diag-q1-conf", "diag-q2-conf", "diag-q3-conf", "diag-q4-conf", "diag-q5-conf"];
+      elements.forEach(id => {
+        document.getElementById(id).removeAttribute("disabled");
+      });
+      document.getElementById("diagnostic-badge").innerText = "In Progress";
+      document.getElementById("diagnostic-badge").className = "bg-ielts-amber text-white text-xs font-bold px-3 py-1 rounded-full uppercase";
+      
+      // Scroll smoothly
+      document.getElementById("diagnostic-section").scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function validateDiagnosticFormCompletion() {
+      const allSelected = state.diagnosticAnswers.every(ans => ans !== null);
+      const submitBtn = document.getElementById("submit-diagnostic-btn");
+      if (allSelected && !state.diagnosticChecked) {
+        submitBtn.removeAttribute("disabled");
+        submitBtn.className = "bg-ielts-blue hover:bg-blue-700 text-white font-bold py-2.5 px-6 rounded transition shadow-md focus-ring cursor-pointer";
+      } else {
+        submitBtn.setAttribute("disabled", "true");
+        submitBtn.className = "bg-gray-300 text-gray-500 font-bold py-2.5 px-6 rounded cursor-not-allowed";
+      }
+    }
+
+    function checkDiagnostic() {
+      if (state.diagnosticChecked) return;
+      state.diagnosticChecked = true;
+      state.diagnosticCompleted = true;
+      
+      // Correct keys
+      const keys = ["fragment", "comma_splice", "run_on", "fragment", "correct"];
+      
+      let correctCount = 0;
+      let totalConfidence = 0;
+
+      const rationales = [
+        "Incorrect. This is a Fragment (missing independent main clause). 'Although' introduces dependency; we need a matching main clause like: '...six months, they discovered no clear trends.'",
+        "Incorrect. Comma Splice. Two independent clauses joined only by a comma. Add 'and' or use a semicolon.",
+        "Incorrect. Run-on. 'therefore' is a transition adverb, which needs a semicolon: '...too small; therefore, the results...'",
+        "Incorrect. Fragment. Stranded dependent clause. Remove 'when' or complete the thought with an active main clause.",
+        "Incorrect. Correct structure. Clean dependent clause introduced by 'While', followed by a separating comma and an independent clause."
+      ];
+
+      for (let i = 0; i < 5; i++) {
+        const userAns = state.diagnosticAnswers[i];
+        const correctAns = keys[i];
+        const isCorrect = (userAns === correctAns);
+        if (isCorrect) correctCount++;
+        
+        totalConfidence += state.diagnosticConfidence[i];
+
+        // Highlight
+        const select = document.getElementById(`diag-q${i+1}-ans`);
+        const feedback = document.getElementById(`diag-q${i+1}-feedback`);
+        
+        select.setAttribute("disabled", "true");
+        document.getElementById(`diag-q${i+1}-conf`).setAttribute("disabled", "true");
+
+        if (isCorrect) {
+          select.className = "w-full bg-emerald-50 border border-emerald-500 rounded p-2 text-sm text-emerald-950";
+          feedback.className = "text-xs p-3 rounded mt-2 bg-emerald-50 text-emerald-900 border border-emerald-200";
+          feedback.innerHTML = `<i class="fa-solid fa-circle-check mr-2 text-emerald-600"></i><strong>Correct:</strong> ${rationales[i]}`;
+        } else {
+          select.className = "w-full bg-red-50 border border-red-500 rounded p-2 text-sm text-red-950";
+          feedback.className = "text-xs p-3 rounded mt-2 bg-red-50 text-red-900 border border-red-200";
+          feedback.innerHTML = `<i class="fa-solid fa-circle-xmark mr-2 text-red-600"></i><strong>Incorrect:</strong> ${rationales[i]}`;
+        }
+        feedback.classList.remove("hidden");
+      }
+
+      // Compute statistics
+      const avgConfidence = (totalConfidence / 5).toFixed(1);
+      
+      // Update taxonomy with diagnostic answers
+      keys.forEach((key, idx) => {
+        let typeKey = "";
+        if (key === "comma_splice") typeKey = "commaSplice";
+        else if (key === "fragment") typeKey = "fragment";
+        else if (key === "run_on") typeKey = "runOn";
+        else if (key === "correct") typeKey = "correctSentence";
+
+        state.accuracy[typeKey].total++;
+        if (state.diagnosticAnswers[idx] === key) {
+          state.accuracy[typeKey].correct++;
+        }
+      });
+
+      // Unlock other sections
+      unlockCoreModules();
+
+      // Perform Teacher Interpretation
+      generateTeacherInterpretation(correctCount, avgConfidence);
+      
+      // Save state
+      saveState();
+      
+      // Render dashboard updates
+      updateDashboard();
+
+      // Change badge
+      document.getElementById("diagnostic-badge").innerText = "Completed";
+      document.getElementById("diagnostic-badge").className = "bg-ielts-emerald text-white text-xs font-bold px-3 py-1 rounded-full uppercase";
+      
+      document.getElementById("submit-diagnostic-btn").setAttribute("disabled", "true");
+      document.getElementById("submit-diagnostic-btn").className = "bg-gray-200 text-gray-400 font-bold py-2.5 px-6 rounded cursor-not-allowed";
+    }
+
+    function unlockCoreModules() {
+      // Remove locked styles and overlays
+      const sections = ["interpretation-section", "teaching-section", "misconception-section", "practice-section", "transfer-section", "exit-ticket-section", "dashboard-section"];
+      sections.forEach(id => {
+        const sec = document.getElementById(id);
+        if (sec) sec.classList.remove("locked-section");
+        const overlay = document.getElementById(`${id}-lock-overlay`);
+        if (overlay) overlay.classList.add("hidden");
+      });
+    }
+
+    function generateTeacherInterpretation(correct, confidence) {
+      // Calculate weakest patterns
+      const csErr = state.accuracy.commaSplice.total - state.accuracy.commaSplice.correct;
+      const fragErr = state.accuracy.fragment.total - state.accuracy.fragment.correct;
+      const roErr = state.accuracy.runOn.total - state.accuracy.runOn.correct;
+
+      let primaryWeakness = "None";
+      let maxErrors = 0;
+
+      if (csErr > maxErrors) { primaryWeakness = "Comma Splices"; maxErrors = csErr; }
+      if (fragErr > maxErrors) { primaryWeakness = "Fragments"; maxErrors = fragErr; }
+      if (roErr > maxErrors) { primaryWeakness = "Run-on Sentences"; maxErrors = roErr; }
+
+      // Custom profiles
+      let bottleneckTitle = "Consistent Clause Integration";
+      let bottleneckDesc = "You possess general grammatical control, but need to refine clause transition points.";
+      let coachAdvice = "<p>Your diagnostic profile indicates a solid foundation. Focus on structural variety and transitioning between compound and complex styles to cross the Band 7.0 barrier.</p>";
+
+      if (primaryWeakness === "Comma Splices") {
+        bottleneckTitle = "Comma Splice Vulnerability";
+        bottleneckDesc = "Relying on commas to join independent thoughts, commonly around conjunctive adverbs.";
+        coachAdvice = "<p><strong>Observation:</strong> You treat transition words like 'however' or 'therefore' as coordinating conjunctions. In academic writing, these conjunctive adverbs require stronger punctuation (semicolon or period) to preserve sentence integrity.</p>";
+      } else if (primaryWeakness === "Fragments") {
+        bottleneckTitle = "Fragmented Clause Dependency";
+        bottleneckDesc = "Isolating subordinate clauses, leaving arguments dangling and incomplete.";
+        coachAdvice = "<p><strong>Observation:</strong> You frequently separate dependent clauses starting with 'because', 'although', or 'since' from their main clauses. This breaks logical continuity and causes grammatical errors that cap scores below Band 6.0.</p>";
+      } else if (primaryWeakness === "Run-on Sentences") {
+        bottleneckTitle = "Fused Sentence Boundaries";
+        bottleneckDesc = "Linking multiple independent thoughts without punctuation, forcing readers to parse structural lines.";
+        coachAdvice = "<p><strong>Observation:</strong> You are fusing main clauses together with zero punctuation or coordinating conjunctions. This hampers readability. Master the use of punctuation marks (semicolon, period) to clearly demarcate clause boundaries.</p>";
+      }
+
+      document.getElementById("diagnostic-score-display").innerText = `${correct} / 5`;
+      document.getElementById("bottleneck-title").innerText = bottleneckTitle;
+      document.getElementById("bottleneck-desc").innerText = bottleneckDesc;
+      document.getElementById("confidence-index-display").innerText = `${confidence} / 5.0`;
+      document.getElementById("coach-advice-box").innerHTML = coachAdvice;
+
+      // Populate next step panel
+      generateNextSteps(primaryWeakness);
+    }
+
+    function generateNextSteps(weakness) {
+      const nextStepsBox = document.getElementById("next-steps-content");
+      let advice = "";
+
+      if (weakness === "Comma Splices") {
+        advice = `
+          <ul class="list-disc pl-4 space-y-1">
+            <li><strong>Action:</strong> Review the usage differences between coordinating conjunctions (FANBOYS) and conjunctive adverbs (however, therefore).</li>
+            <li><strong>Drill:</strong> Complete Phase 3 Practice (Repairing Splices) and Misconception Check #1.</li>
+            <li><strong>Self-Correction:</strong> Always search drafts for 'however' and verify it has a semicolon/period immediately before it.</li>
+          </ul>
+        `;
+      } else if (weakness === "Fragments") {
+        advice = `
+          <ul class="list-disc pl-4 space-y-1">
+            <li><strong>Action:</strong> Practice identifying missing main clauses. If a sentence begins with 'Since' or 'Although', it must contain a separating comma followed by a full independent clause.</li>
+            <li><strong>Drill:</strong> Complete Phase 4 Practice (Combining Clauses) and Misconception Check #2.</li>
+            <li><strong>Self-Correction:</strong> Verify that every isolated fragment in your drafts is connected to an active main verb structure.</li>
+          </ul>
+        `;
+      } else if (weakness === "Run-on Sentences") {
+        advice = `
+          <ul class="list-disc pl-4 space-y-1">
+            <li><strong>Action:</strong> Work on short, clean sentences before building complex structures. Ensure every individual main thought has a distinct boundary marker.</li>
+            <li><strong>Drill:</strong> Practice dividing long run-ons into discrete sentences and Misconception Check #3.</li>
+            <li><strong>Self-Correction:</strong> Read your paragraphs aloud. Any natural pause in speaking usually indicates where a punctuation boundary should sit.</li>
+          </ul>
+        `;
+      } else {
+        advice = `
+          <ul class="list-disc pl-4 space-y-1">
+            <li><strong>Action:</strong> Focus on expanding the variety of your sentence structures. Combine simple clauses into complex and compound-complex styles.</li>
+            <li><strong>Drill:</strong> Complete the Productive Transfer task using relative clauses and conditional structures.</li>
+          </ul>
+        `;
+      }
+      nextStepsBox.innerHTML = advice;
+    }
+
+    // ----------------------------------------------------
+    // PRACTICE PHASES LOGIC
+    // ----------------------------------------------------
+
+    // MISCONCEPTION CHECK
+    function checkMisconceptionSet() {
+      if (state.misconceptionChecked) return;
+
+      const q1 = document.querySelector('input[name="miscon-q1"]:checked');
+      const q2 = document.querySelector('input[name="miscon-q2"]:checked');
+      const q3 = document.querySelector('input[name="miscon-q3"]:checked');
+
+      if (!q1 || !q2 || !q3) {
+        alertCustom("Please select an option for all three misconception questions.");
+        return;
+      }
+
+      state.misconceptionAnswers = [q1.value, q2.value, q3.value];
+      state.misconceptionChecked = true;
+
+      // Grade (Q1 is Comma Splice, Q2 is Fragment, Q3 is Run-on)
+      const keys = ["C", "B", "B"];
+      const categories = ["commaSplice", "fragment", "runOn"];
+
+      for (let i = 0; i < 3; i++) {
+        const userAns = state.misconceptionAnswers[i];
+        const correctAns = keys[i];
+        const isCorrect = (userAns === correctAns);
+        const feedback = document.getElementById(`miscon-q${i+1}-feedback`);
+        
+        state.accuracy[categories[i]].total++;
+        if (isCorrect) state.accuracy[categories[i]].correct++;
+
+        feedback.className = isCorrect 
+          ? "text-xs p-3 rounded mt-2 bg-emerald-50 text-emerald-900 border border-emerald-200"
+          : "text-xs p-3 rounded mt-2 bg-red-50 text-red-900 border border-red-200";
+
+        const textRationale = MISCON_DATA[i+12].rationales[userAns];
+        feedback.innerHTML = isCorrect
+          ? `<i class="fa-solid fa-circle-check mr-2 text-emerald-600"></i><strong>Correct:</strong> ${textRationale}`
+          : `<i class="fa-solid fa-circle-xmark mr-2 text-red-600"></i><strong>Incorrect selection:</strong> ${textRationale}`;
+        
+        feedback.classList.remove("hidden");
+
+        // Disable radios
+        const radios = document.querySelectorAll(`input[name="miscon-q${i+1}"]`);
+        radios.forEach(r => r.setAttribute("disabled", "true"));
+      }
+
+      document.getElementById("check-miscon-btn").setAttribute("disabled", "true");
+      document.getElementById("check-miscon-btn").className = "bg-gray-200 text-gray-400 font-bold py-1.5 px-4 rounded text-xs cursor-not-allowed";
+
+      saveState();
+      updateDashboard();
+    }
+
+    // PHASE 1: NOTICE SETUP
+    function setupNoticeSections() {
+      for (let sIdx = 0; sIdx < 3; sIdx++) {
+        const container = document.getElementById(`notice-sentence-${sIdx}`);
+        container.innerHTML = "";
+        
+        const data = NOTICE_DATA[sIdx];
+        data.tokens.forEach((token, tIdx) => {
+          const span = document.createElement("span");
+          span.className = "clickable-word focus-ring";
+          span.innerText = token;
+          span.setAttribute("tabindex", "0");
+          span.setAttribute("aria-label", `Word: ${token}`);
+          span.dataset.tokenIdx = tIdx;
+          
+          span.addEventListener("click", () => handleNoticeWordClick(sIdx, tIdx));
+          span.addEventListener("keydown", (e) => {
+            if (e.key === "Enter" || e.key === " ") {
+              e.preventDefault();
+              handleNoticeWordClick(sIdx, tIdx);
+            }
+          });
+
+          container.appendChild(span);
+          container.appendChild(document.createTextNode(" "));
+        });
+      }
+    }
+
+    function handleNoticeWordClick(sentenceIdx, tokenIdx) {
+      if (state.practiceNoticeChecked) return;
+      
+      const container = document.getElementById(`notice-sentence-${sentenceIdx}`);
+      const spans = container.querySelectorAll(".clickable-word");
+      
+      spans.forEach(span => {
+        if (parseInt(span.dataset.tokenIdx) === tokenIdx) {
+          span.classList.add("selected");
+          state.practiceNoticeAnswers[sentenceIdx] = tokenIdx;
+        } else {
+          span.classList.remove("selected");
+        }
+      });
+      
+      document.getElementById(`notice-status-${sentenceIdx}`).innerText = "Status: Selection Made";
+      saveState();
+    }
+
+    function checkNoticeSet() {
+      if (state.practiceNoticeChecked) return;
+      
+      // Verify all items are completed
+      const allSelected = state.practiceNoticeAnswers.every(ans => ans !== null);
+      if (!allSelected) {
+        alertCustom("Please make a selection in all three items before checking.");
+        return;
+      }
+
+      state.practiceNoticeChecked = true;
+      
+      // Update stats and style selections
+      for (let sIdx = 0; sIdx < 3; sIdx++) {
+        const container = document.getElementById(`notice-sentence-${sIdx}`);
+        const spans = container.querySelectorAll(".clickable-word");
+        const feedback = document.getElementById(`notice-feedback-${sIdx}`);
+        const statusSpan = document.getElementById(`notice-status-${sIdx}`);
+        
+        const userSelection = state.practiceNoticeAnswers[sIdx];
+        const correctIndex = NOTICE_DATA[sIdx].errorIndex;
+        const isCorrect = (userSelection === correctIndex);
+
+        // Update taxonomy
+        const categories = ["commaSplice", "fragment", "runOn"];
+        const cat = categories[sIdx];
+        state.accuracy[cat].total++;
+        if (isCorrect) state.accuracy[cat].correct++;
+
+        spans.forEach(span => {
+          const idx = parseInt(span.dataset.tokenIdx);
+          if (idx === userSelection) {
+            span.classList.remove("selected");
+            if (isCorrect) {
+              span.classList.add("correct-select");
+            } else {
+              span.classList.add("incorrect-select");
+            }
+          }
+          // Highlight correct one if missed
+          if (idx === correctIndex && !isCorrect) {
+            span.classList.add("correct-select");
+          }
+        });
+
+        statusSpan.innerText = isCorrect ? "Status: Correct" : "Status: Incorrect";
+        statusSpan.className = isCorrect ? "font-bold text-emerald-600" : "font-bold text-ielts-crimson";
+        
+        feedback.className = isCorrect 
+          ? "text-xs p-3 rounded mt-2 bg-emerald-50 text-emerald-900 border border-emerald-200"
+          : "text-xs p-3 rounded mt-2 bg-red-50 text-red-900 border border-red-200";
+          
+        feedback.innerHTML = isCorrect 
+          ? `<i class="fa-solid fa-circle-check mr-2 text-emerald-600"></i><strong>Correct:</strong> ${NOTICE_DATA[sIdx].rationale}`
+          : `<i class="fa-solid fa-circle-xmark mr-2 text-red-600"></i><strong>Incorrect selection:</strong> The error occurs at the highlighted green section. ${NOTICE_DATA[sIdx].rationale}`;
+        
+        feedback.classList.remove("hidden");
+      }
+
+      document.getElementById("check-notice-btn").setAttribute("disabled", "true");
+      document.getElementById("check-notice-btn").className = "bg-gray-200 text-gray-400 font-bold py-1.5 px-4 rounded text-xs cursor-not-allowed";
+      
+      saveState();
+      updateDashboard();
+    }
+
+    // PHASE 2: CHOOSE CHECK
+    function checkChooseSet() {
+      if (state.practiceChooseChecked) return;
+
+      // Collect selections
+      const q1 = document.querySelector('input[name="choose-q1"]:checked');
+      const q2 = document.querySelector('input[name="choose-q2"]:checked');
+      const q3 = document.querySelector('input[name="choose-q3"]:checked');
+
+      if (!q1 || !q2 || !q3) {
+        alertCustom("Please select an option for all three questions.");
+        return;
+      }
+
+      state.practiceChooseAnswers = [q1.value, q2.value, q3.value];
+      state.practiceChooseChecked = true;
+
+      // Grade (Q1 is Comma Splice, Q2 is Fragment, Q3 is Run-on)
+      const keys = ["B", "A", "B"];
+      const categories = ["commaSplice", "fragment", "runOn"];
+
+      for (let i = 0; i < 3; i++) {
+        const userAns = state.practiceChooseAnswers[i];
+        const correctAns = keys[i];
+        const isCorrect = (userAns === correctAns);
+        const feedback = document.getElementById(`choose-q${i+1}-feedback`);
+        
+        state.accuracy[categories[i]].total++;
+        if (isCorrect) state.accuracy[categories[i]].correct++;
+
+        feedback.className = isCorrect 
+          ? "text-xs p-3 rounded mt-2 bg-emerald-50 text-emerald-900 border border-emerald-200"
+          : "text-xs p-3 rounded mt-2 bg-red-50 text-red-900 border border-red-200";
+
+        const textRationale = CHOOSE_DATA[i+9].rationales[userAns];
+        feedback.innerHTML = isCorrect
+          ? `<i class="fa-solid fa-circle-check mr-2 text-emerald-600"></i><strong>Correct:</strong> ${textRationale}`
+          : `<i class="fa-solid fa-circle-xmark mr-2 text-red-600"></i><strong>Incorrect selection:</strong> ${textRationale}`;
+        
+        feedback.classList.remove("hidden");
+
+        // Disable radios
+        const radios = document.querySelectorAll(`input[name="choose-q${i+1}"]`);
+        radios.forEach(r => r.setAttribute("disabled", "true"));
+      }
+
+      document.getElementById("check-choose-btn").setAttribute("disabled", "true");
+      document.getElementById("check-choose-btn").className = "bg-gray-200 text-gray-400 font-bold py-1.5 px-4 rounded text-xs cursor-not-allowed";
+
+      saveState();
+      updateDashboard();
+    }
+
+    // PHASE 3: REPAIR CHECK
+    function checkRepairSet() {
+      if (state.practiceRepairChecked) return;
+
+      const r1 = document.getElementById("repair-q1").value.trim();
+      const r2 = document.getElementById("repair-q2").value.trim();
+      const r3 = document.getElementById("repair-q3").value.trim();
+
+      if (!r1 || !r2 || !r3) {
+        alertCustom("Please complete all text entry boxes.");
+        return;
+      }
+
+      state.practiceRepairAnswers = [r1, r2, r3];
+      state.practiceRepairChecked = true;
+
+      // Check against datasets (15 is comma splice, 16 is fragment, 17 is run-on)
+      const ids = [15, 16, 17];
+      const categories = ["commaSplice", "fragment", "runOn"];
+
+      for (let i = 0; i < 3; i++) {
+        const input = document.getElementById(`repair-q${i+1}`);
+        const feedback = document.getElementById(`repair-q${i+1}-feedback`);
+        const userText = state.practiceRepairAnswers[i];
+        
+        // Match regexes
+        const isCorrect = REPAIR_DATA[ids[i]].accepted.some(regex => regex.test(userText));
+        
+        state.accuracy[categories[i]].total++;
+        if (isCorrect) state.accuracy[categories[i]].correct++;
+
+        input.setAttribute("disabled", "true");
+
+        feedback.className = isCorrect
+          ? "text-xs p-3 rounded mt-2 bg-emerald-50 text-emerald-900 border border-emerald-200"
+          : "text-xs p-3 rounded mt-2 bg-red-50 text-red-900 border border-red-200";
+
+        feedback.innerHTML = isCorrect
+          ? `<i class="fa-solid fa-circle-check mr-2 text-emerald-600"></i><strong>Correct:</strong> Your rewrite matches our structural models. <br><span class="block mt-1 text-[10px] text-slate-500">Model answer: "${REPAIR_DATA[ids[i]].model}"</span>`
+          : `<i class="fa-solid fa-circle-xmark mr-2 text-red-600"></i><strong>Check structure:</strong> Your rewrite does not match our validated Band 7.0 structural checks. Please verify against this model: <br><strong class="block mt-1 text-slate-800 font-bold">"${REPAIR_DATA[ids[i]].model}"</strong>`;
+        
+        feedback.classList.remove("hidden");
+      }
+
+      document.getElementById("check-repair-btn").setAttribute("disabled", "true");
+      document.getElementById("check-repair-btn").className = "bg-gray-200 text-gray-400 font-bold py-1.5 px-4 rounded text-xs cursor-not-allowed";
+
+      saveState();
+      updateDashboard();
+    }
+
+    // PHASE 4: PRODUCE CHECK
+    function checkProduceSet() {
+      if (state.practiceProduceChecked) return;
+
+      const p1 = document.getElementById("produce-q1").value.trim();
+      const p2 = document.getElementById("produce-q2").value.trim();
+      const p3 = document.getElementById("produce-q3").value.trim();
+
+      if (!p1 || !p2 || !p3) {
+        alertCustom("Please complete all text entry boxes.");
+        return;
+      }
+
+      state.practiceProduceAnswers = [p1, p2, p3];
+      state.practiceProduceChecked = true;
+
+      // Grade (18 is complex-fragment repair, 19 is compound, 20 is relative clause/run-on)
+      const ids = [18, 19, 20];
+      const categories = ["commaSplice", "fragment", "runOn"]; // structural targets mapping
+
+      for (let i = 0; i < 3; i++) {
+        const input = document.getElementById(`produce-q${i+1}`);
+        const feedback = document.getElementById(`produce-q${i+1}-feedback`);
+        const userText = state.practiceProduceAnswers[i];
+
+        const isCorrect = PRODUCE_DATA[ids[i]].accepted.some(regex => regex.test(userText));
+
+        state.accuracy[categories[i]].total++;
+        if (isCorrect) state.accuracy[categories[i]].correct++;
+
+        input.setAttribute("disabled", "true");
+
+        feedback.className = isCorrect
+          ? "text-xs p-3 rounded mt-2 bg-emerald-50 text-emerald-900 border border-emerald-200"
+          : "text-xs p-3 rounded mt-2 bg-red-50 text-red-900 border border-red-200";
+
+        feedback.innerHTML = isCorrect
+          ? `<i class="fa-solid fa-circle-check mr-2 text-emerald-600"></i><strong>Correct:</strong> Synthesised successfully. <br><span class="block mt-1 text-[10px] text-slate-500">Suggested: "${PRODUCE_DATA[ids[i]].model}"</span>`
+          : `<i class="fa-solid fa-circle-xmark mr-2 text-red-600"></i><strong>Incorrect connection:</strong> Check coordinating punctuation/conjunction positions. <br><span class="block mt-1 text-slate-800 font-semibold">Model standard: "${PRODUCE_DATA[ids[i]].model}"</span>`;
+        
+        feedback.classList.remove("hidden");
+      }
+
+      document.getElementById("check-produce-btn").setAttribute("disabled", "true");
+      document.getElementById("check-produce-btn").className = "bg-gray-200 text-gray-400 font-bold py-1.5 px-4 rounded text-xs cursor-not-allowed";
+
+      saveState();
+      updateDashboard();
+    }
+
+    // PHASE 5: GUIDED CONSTRUCTION LOGIC
+    function updateConstructPreview(id) {
+      const a = document.getElementById(`construct-${id}-a`).value;
+      const b = document.getElementById(`construct-${id}-b`).value;
+      const c = document.getElementById(`construct-${id}-c`).value;
+
+      const previewText = [a, b, c].filter(x => x !== "").join(" ");
+      document.getElementById(`construct-${id}-preview`).innerText = previewText || "Assembling sentence...";
+    }
+
+    function checkConstructionSet() {
+      if (state.guidedConstructionChecked) return;
+
+      const c1 = [
+        document.getElementById("construct-1-a").value,
+        document.getElementById("construct-1-b").value,
+        document.getElementById("construct-1-c").value
+      ];
+      const c2 = [
+        document.getElementById("construct-2-a").value,
+        document.getElementById("construct-2-b").value,
+        document.getElementById("construct-2-c").value
+      ];
+      const c3 = [
+        document.getElementById("construct-3-a").value,
+        document.getElementById("construct-3-b").value,
+        document.getElementById("construct-3-c").value
+      ];
+
+      // Verify all selections made
+      const allSelected = [...c1, ...c2, ...c3].every(x => x !== "");
+      if (!allSelected) {
+        alertCustom("Please complete all dropdown selections in all three items.");
+        return;
+      }
+
+      state.guidedConstructionAnswers = [c1, c2, c3];
+      state.guidedConstructionChecked = true;
+
+      const categories = ["fragment", "commaSplice", "runOn"]; // Q21: fragment (although), Q22: comma splice (therefore), Q23: runOn (which)
+
+      for (let i = 1; i <= 3; i++) {
+        const userAns = state.guidedConstructionAnswers[i-1];
+        const key = CONSTRUCT_DATA[i];
+        const isCorrect = (userAns[0] === key.a && userAns[1] === key.b && userAns[2] === key.c);
+        
+        state.accuracy[categories[i-1]].total++;
+        if (isCorrect) state.accuracy[categories[i-1]].correct++;
+
+        const feedback = document.getElementById(`construct-${i}-feedback`);
+        
+        // Disable dropdowns
+        document.getElementById(`construct-${i}-a`).setAttribute("disabled", "true");
+        document.getElementById(`construct-${i}-b`).setAttribute("disabled", "true");
+        document.getElementById(`construct-${i}-c`).setAttribute("disabled", "true");
+
+        feedback.className = isCorrect
+          ? "text-xs p-3 rounded mt-2 bg-emerald-50 text-emerald-900 border border-emerald-200"
+          : "text-xs p-3 rounded mt-2 bg-red-50 text-red-900 border border-red-200";
+
+        feedback.innerHTML = isCorrect
+          ? `<i class="fa-solid fa-circle-check mr-2 text-emerald-600"></i><strong>Correct:</strong> Beautifully assembled! Your sentence has perfect boundaries. <br><span class="block mt-1 font-mono font-bold text-slate-800">"${key.model}"</span>`
+          : `<i class="fa-solid fa-circle-xmark mr-2 text-red-600"></i><strong>Incorrect Assembly:</strong> Check your transition markers and punctuation matches. The target Band 7.0 structure is: <br><strong class="block mt-1 font-mono text-slate-800">"${key.model}"</strong>`;
+        
+        feedback.classList.remove("hidden");
+      }
+
+      document.getElementById("check-construct-btn").setAttribute("disabled", "true");
+      document.getElementById("check-construct-btn").className = "bg-gray-200 text-gray-400 font-bold py-1.5 px-4 rounded text-xs cursor-not-allowed";
+
+      saveState();
+      updateDashboard();
+    }
+
+    // PHASE 6: APPLY CHECK
+    function checkApplySet() {
+      if (state.practiceApplyChecked) return;
+
+      const a1 = document.getElementById("apply-q1").value.trim();
+      const a2 = document.getElementById("apply-q2").value.trim();
+
+      if (!a1 || !a2) {
+        alertCustom("Please complete both paragraph rewrite areas.");
+        return;
+      }
+
+      state.practiceApplyAnswers = [a1, a2];
+      state.practiceApplyChecked = true;
+
+      // Grade (Apply 24 is Fragment/Splice, Apply 25 is Run-on/Splice)
+      const ids = [24, 25];
+      const categories = [["fragment", "commaSplice"], ["runOn", "commaSplice"]];
+
+      for (let i = 0; i < 2; i++) {
+        const textarea = document.getElementById(`apply-q${i+1}`);
+        const feedback = document.getElementById(`apply-q${i+1}-feedback`);
+        const userText = state.practiceApplyAnswers[i].replace(/\s+/g, ' ');
+
+        const isCorrect = APPLY_DATA[ids[i]].accepted.some(regex => regex.test(userText));
+
+        categories[i].forEach(cat => {
+          state.accuracy[cat].total++;
+          if (isCorrect) state.accuracy[cat].correct++;
+        });
+
+        textarea.setAttribute("disabled", "true");
+
+        feedback.className = isCorrect
+          ? "text-xs p-3 rounded mt-2 bg-emerald-50 text-emerald-900 border border-emerald-200"
+          : "text-xs p-3 rounded mt-2 bg-red-50 text-red-900 border border-red-200";
+
+        feedback.innerHTML = isCorrect
+          ? `<i class="fa-solid fa-circle-check mr-2 text-emerald-600"></i><strong>Correct:</strong> Paragraph repaired successfully. Excellent control of complex clauses.`
+          : `<i class="fa-solid fa-circle-xmark mr-2 text-red-600"></i><strong>Errors remained:</strong> Double check coordinating joins and dependent markers. Here is the Band 7.0 standard paragraph model: <br><strong class="block mt-1 text-slate-800 font-bold">"${APPLY_DATA[ids[i]].model}"</strong>`;
+        
+        feedback.classList.remove("hidden");
+      }
+
+      document.getElementById("check-apply-btn").setAttribute("disabled", "true");
+      document.getElementById("check-apply-btn").className = "bg-gray-200 text-gray-400 font-bold py-1.5 px-4 rounded text-xs cursor-not-allowed";
+
+      saveState();
+      updateDashboard();
+    }
+
+    // exit TICKET CHECK
+    function checkExitTicketSet() {
+      if (state.exitTicketChecked) return;
+
+      const q1 = document.querySelector('input[name="exit-q1"]:checked');
+      const q2 = document.querySelector('input[name="exit-q2"]:checked');
+
+      if (!q1 || !q2) {
+        alertCustom("Please complete both exit ticket questions.");
+        return;
+      }
+
+      state.exitTicketAnswers = [q1.value, q2.value];
+      state.exitTicketChecked = true;
+
+      const keys = ["A", "B"];
+      const categories = ["fragment", "commaSplice"]; // Exit 1 is Fragment check, Exit 2 is Comma Splice check
+
+      for (let i = 0; i < 2; i++) {
+        const userAns = state.exitTicketAnswers[i];
+        const correctAns = keys[i];
+        const isCorrect = (userAns === correctAns);
+        const feedback = document.getElementById(`exit-q${i+1}-feedback`);
+
+        state.accuracy[categories[i]].total++;
+        if (isCorrect) state.accuracy[categories[i]].correct++;
+
+        feedback.className = isCorrect
+          ? "text-xs p-3 rounded mt-2 bg-emerald-50 text-emerald-900 border border-emerald-200"
+          : "text-xs p-3 rounded mt-2 bg-red-50 text-red-900 border border-red-200";
+
+        const textRationale = EXIT_TICKET_DATA[i+27].rationales[userAns];
+        feedback.innerHTML = isCorrect
+          ? `<i class="fa-solid fa-circle-check mr-2 text-emerald-600"></i><strong>Correct:</strong> ${textRationale}`
+          : `<i class="fa-solid fa-circle-xmark mr-2 text-red-600"></i><strong>Incorrect:</strong> ${textRationale}`;
+        
+        feedback.classList.remove("hidden");
+
+        // Disable radios
+        document.querySelectorAll(`input[name="exit-q${i+1}"]`).forEach(r => r.setAttribute("disabled", "true"));
+      }
+
+      document.getElementById("submit-exit-btn").setAttribute("disabled", "true");
+      document.getElementById("submit-exit-btn").className = "bg-gray-200 text-gray-400 font-bold py-1.5 px-4 rounded text-xs cursor-not-allowed";
+
+      saveState();
+      updateDashboard();
+    }
+
+    // ----------------------------------------------------
+    // IELTS TRANSFER TASK OPERATIONS
+    // ----------------------------------------------------
+
+    function switchTransferTab(option) {
+      state.transferOption = option;
+      saveState();
+
+      const btnWriting = document.getElementById("btn-transfer-writing");
+      const btnSpeaking = document.getElementById("btn-transfer-speaking");
+      const container = document.getElementById("transfer-prompt-container");
+
+      if (option === 'writing') {
+        btnWriting.className = "py-2 px-4 border-b-2 border-ielts-blue text-sm font-bold text-ielts-blue focus-ring";
+        btnSpeaking.className = "py-2 px-4 border-b-2 border-transparent text-sm font-medium text-slate-600 hover:text-ielts-blue focus-ring";
+        container.innerHTML = TRANSFER_PROMPTS.writing.prompt;
+      } else {
+        btnSpeaking.className = "py-2 px-4 border-b-2 border-ielts-blue text-sm font-bold text-ielts-blue focus-ring";
+        btnWriting.className = "py-2 px-4 border-b-2 border-transparent text-sm font-medium text-slate-600 hover:text-ielts-blue focus-ring";
+        container.innerHTML = TRANSFER_PROMPTS.speaking.prompt;
+      }
+
+      // If submitted, reload model answer
+      if (state.transferSubmitted) {
+        document.getElementById("transfer-model-display").innerText = TRANSFER_PROMPTS[state.transferOption].model;
+      }
+    }
+
+    function updateWordCount(text) {
+      const words = text.trim() === "" ? 0 : text.trim().split(/\s+/).length;
+      document.getElementById("transfer-word-count").innerText = `Words: ${words}`;
+    }
+
+    function processTransferTask() {
+      const text = document.getElementById("transfer-input").value.trim();
+      if (!text) {
+        alertCustom("Please write your response before verifying.");
+        return;
+      }
+
+      // Check checklist
+      const allChecked = state.transferCheckedList.every(v => v === true);
+      if (!allChecked) {
+        alertCustom("Please review and tick all four items in the Self-Verification checklist.");
+        return;
+      }
+
+      state.transferSubmitted = true;
+      saveState();
+
+      // Metrics calculation
+      const sentences = text.split(/[.!?]+/).filter(s => s.trim() !== "").length;
+      const words = text.split(/\s+/).filter(w => w.trim() !== "").length;
+      const avgLength = sentences === 0 ? 0 : (words / sentences).toFixed(1);
+
+      document.getElementById("metric-sentences").innerText = sentences;
+      document.getElementById("metric-avg-length").innerText = `${avgLength} words`;
+
+      // Check for errors (simple heuristic checks for warning boxes)
+      const warningBox = document.getElementById("analysis-warning-box");
+      warningBox.classList.add("hidden");
+
+      // Check for repeated conjunctions like 'and' or 'but'
+      const matchesAndBut = text.toLowerCase().match(/\b(and|but)\b/g);
+      const isWordy = matchesAndBut && (matchesAndBut.length > 3);
+      // Check for comma splices or missing punctuation before however/therefore
+      const hasSplice = /,\s*(however|therefore|furthermore)\b/i.test(text);
+
+      if (isWordy || hasSplice) {
+        warningBox.classList.remove("hidden");
+        let warnMsg = "<strong>Coaching Observation:</strong> ";
+        if (isWordy) warnMsg += "You have multiple coordinating conjunctions ('and'/'but') in a short span. This limits grammatical complexity. ";
+        if (hasSplice) warnMsg += "Detected a potential comma splice immediately before a transitional adverb (like 'however'). Use a semicolon/period. ";
+        warningBox.innerHTML = warnMsg;
+      }
+
+      // Show results
+      document.getElementById("transfer-analysis-box").classList.remove("hidden");
+      document.getElementById("transfer-model-display").innerText = TRANSFER_PROMPTS[state.transferOption].model;
+    }
+
+    // ----------------------------------------------------
+    // REVIEW DASHBOARD & SYNC FUNCTIONS
+    // ----------------------------------------------------
+
+    function updateDashboard() {
+      // Calculate percentages
+      const calcPct = (cat) => {
+        const item = state.accuracy[cat];
+        return item.total === 0 ? 0 : Math.round((item.correct / item.total) * 100);
+      };
+
+      const csPct = calcPct("commaSplice");
+      const fragPct = calcPct("fragment");
+      const roPct = calcPct("runOn");
+      const corrPct = calcPct("correctSentence");
+
+      // Update UI elements
+      document.getElementById("tax-comma-splice-pct").innerText = `${csPct}%`;
+      document.getElementById("tax-comma-splice-bar").style.width = `${csPct}%`;
+
+      document.getElementById("tax-fragment-pct").innerText = `${fragPct}%`;
+      document.getElementById("tax-fragment-bar").style.width = `${fragPct}%`;
+
+      document.getElementById("tax-run-on-pct").innerText = `${roPct}%`;
+      document.getElementById("tax-run-on-bar").style.width = `${roPct}%`;
+
+      document.getElementById("tax-correct-pct").innerText = `${corrPct}%`;
+      document.getElementById("tax-correct-bar").style.width = `${corrPct}%`;
+
+      // Session total accuracy
+      let totalItems = 0;
+      let correctItems = 0;
+      Object.keys(state.accuracy).forEach(k => {
+        totalItems += state.accuracy[k].total;
+        correctItems += state.accuracy[k].correct;
+      });
+
+      if (totalItems > 0) {
+        const totalPct = Math.round((correctItems / totalItems) * 100);
+        document.getElementById("session-accuracy-badge").innerText = `${totalPct}% (${correctItems}/${totalItems})`;
+      } else {
+        document.getElementById("session-accuracy-badge").innerText = "--";
+      }
+    }
+
+    function toggleAnswerKey() {
+      const container = document.getElementById("answer-key-container");
+      const btn = document.getElementById("toggle-key-btn");
+      if (container.classList.contains("hidden")) {
+        container.classList.remove("hidden");
+        btn.innerText = "Hide View";
+      } else {
+        container.classList.add("hidden");
+        btn.innerText = "Toggle View";
+      }
+    }
+
+    // ----------------------------------------------------
+    // LOCAL STORAGE RESTORE AND RESET OPERATIONS
+    // ----------------------------------------------------
+
+    function syncUIWithState() {
+      // Diagnostic Section restore
+      if (state.diagnosticCompleted) {
+        // Set values and disable
+        for (let i = 0; i < 5; i++) {
+          const select = document.getElementById(`diag-q${i+1}-ans`);
+          select.value = state.diagnosticAnswers[i] || "";
+          select.setAttribute("disabled", "true");
+          
+          const slider = document.getElementById(`diag-q${i+1}-conf`);
+          slider.value = state.diagnosticConfidence[i];
+          slider.setAttribute("disabled", "true");
+        }
+        
+        unlockCoreModules();
+        
+        // Recalculate score metrics
+        const keys = ["fragment", "comma_splice", "run_on", "fragment", "correct"];
+        let correctCount = 0;
+        let totalConfidence = 0;
+        
+        for (let i = 0; i < 5; i++) {
+          const userAns = state.diagnosticAnswers[i];
+          const correctAns = keys[i];
+          const isCorrect = (userAns === correctAns);
+          if (isCorrect) correctCount++;
+          totalConfidence += state.diagnosticConfidence[i];
+
+          const feedback = document.getElementById(`diag-q${i+1}-feedback`);
+          const select = document.getElementById(`diag-q${i+1}-ans`);
+          
+          if (isCorrect) {
+            select.className = "w-full bg-emerald-50 border border-emerald-500 rounded p-2 text-sm text-emerald-950";
+            feedback.className = "text-xs p-3 rounded mt-2 bg-emerald-50 text-emerald-900 border border-emerald-200";
+            feedback.innerHTML = `<i class="fa-solid fa-circle-check mr-2 text-emerald-600"></i><strong>Correct:</strong> Answer is correct.`;
+          } else {
+            select.className = "w-full bg-red-50 border border-red-500 rounded p-2 text-sm text-red-950";
+            feedback.className = "text-xs p-3 rounded mt-2 bg-red-50 text-red-900 border border-red-200";
+            feedback.innerHTML = `<i class="fa-solid fa-circle-xmark mr-2 text-red-600"></i><strong>Incorrect:</strong> Answer is incorrect.`;
+          }
+          feedback.classList.remove("hidden");
+        }
+        
+        const avgConfidence = (totalConfidence / 5).toFixed(1);
+        generateTeacherInterpretation(correctCount, avgConfidence);
+        
+        // diagnostic badge
+        document.getElementById("diagnostic-badge").innerText = "Completed";
+        document.getElementById("diagnostic-badge").className = "bg-ielts-emerald text-white text-xs font-bold px-3 py-1 rounded-full uppercase";
+        
+        document.getElementById("submit-diagnostic-btn").setAttribute("disabled", "true");
+        document.getElementById("submit-diagnostic-btn").className = "bg-gray-200 text-gray-400 font-bold py-2.5 px-6 rounded cursor-not-allowed";
+      }
+
+      // Restore Misconception Set
+      if (state.misconceptionChecked) {
+        const misconKeys = ["C", "B", "B"];
+        for (let i = 0; i < 3; i++) {
+          const feedback = document.getElementById(`miscon-q${i+1}-feedback`);
+          const userAns = state.misconceptionAnswers[i];
+          const correctAns = misconKeys[i];
+          const isCorrect = (userAns === correctAns);
+
+          const radio = document.querySelector(`input[name="miscon-q${i+1}"][value="${userAns}"]`);
+          if (radio) radio.checked = true;
+
+          document.querySelectorAll(`input[name="miscon-q${i+1}"]`).forEach(r => r.setAttribute("disabled", "true"));
+
+          feedback.className = isCorrect 
+            ? "text-xs p-3 rounded mt-2 bg-emerald-50 text-emerald-900 border border-emerald-200"
+            : "text-xs p-3 rounded mt-2 bg-red-50 text-red-900 border border-red-200";
+
+          const textRationale = MISCON_DATA[i+12].rationales[userAns];
+          feedback.innerHTML = isCorrect
+            ? `<i class="fa-solid fa-circle-check mr-2 text-emerald-600"></i><strong>Correct:</strong> ${textRationale}`
+            : `<i class="fa-solid fa-circle-xmark mr-2 text-red-600"></i><strong>Incorrect selection:</strong> ${textRationale}`;
+          
+          feedback.classList.remove("hidden");
+        }
+        document.getElementById("check-miscon-btn").setAttribute("disabled", "true");
+        document.getElementById("check-miscon-btn").className = "bg-gray-200 text-gray-400 font-bold py-1.5 px-4 rounded text-xs cursor-not-allowed";
+      }
+
+      // Restore Notice Set
+      if (state.practiceNoticeChecked) {
+        for (let sIdx = 0; sIdx < 3; sIdx++) {
+          const container = document.getElementById(`notice-sentence-${sIdx}`);
+          const spans = container.querySelectorAll(".clickable-word");
+          const feedback = document.getElementById(`notice-feedback-${sIdx}`);
+          const statusSpan = document.getElementById(`notice-status-${sIdx}`);
+          const correctIndex = NOTICE_DATA[sIdx].errorIndex;
+          const userSelection = state.practiceNoticeAnswers[sIdx];
+          const isCorrect = (userSelection === correctIndex);
+
+          spans.forEach(span => {
+            const idx = parseInt(span.dataset.tokenIdx);
+            if (idx === userSelection) {
+              if (isCorrect) {
+                span.classList.add("correct-select");
+              } else {
+                span.classList.add("incorrect-select");
+              }
+            }
+            if (idx === correctIndex && !isCorrect) {
+              span.classList.add("correct-select");
+            }
+          });
+
+          statusSpan.innerText = isCorrect ? "Status: Correct" : "Status: Incorrect";
+          statusSpan.className = isCorrect ? "font-bold text-emerald-600" : "font-bold text-ielts-crimson";
+          
+          feedback.className = isCorrect 
+            ? "text-xs p-3 rounded mt-2 bg-emerald-50 text-emerald-900 border border-emerald-200"
+            : "text-xs p-3 rounded mt-2 bg-red-50 text-red-900 border border-red-200";
+            
+          feedback.innerHTML = isCorrect 
+            ? `<i class="fa-solid fa-circle-check mr-2 text-emerald-600"></i><strong>Correct:</strong> ${NOTICE_DATA[sIdx].rationale}`
+            : `<i class="fa-solid fa-circle-xmark mr-2 text-red-600"></i><strong>Incorrect selection:</strong> The error occurs at the highlighted green section. ${NOTICE_DATA[sIdx].rationale}`;
+          
+          feedback.classList.remove("hidden");
+        }
+        document.getElementById("check-notice-btn").setAttribute("disabled", "true");
+        document.getElementById("check-notice-btn").className = "bg-gray-200 text-gray-400 font-bold py-1.5 px-4 rounded text-xs cursor-not-allowed";
+      }
+
+      // Restore Choose Set
+      if (state.practiceChooseChecked) {
+        const chooseKeys = ["B", "A", "B"];
+        for (let i = 0; i < 3; i++) {
+          const feedback = document.getElementById(`choose-q${i+1}-feedback`);
+          const userAns = state.practiceChooseAnswers[i];
+          const correctAns = chooseKeys[i];
+          const isCorrect = (userAns === correctAns);
+
+          // Select radio
+          const radio = document.querySelector(`input[name="choose-q${i+1}"][value="${userAns}"]`);
+          if (radio) radio.checked = true;
+
+          // Disable all
+          document.querySelectorAll(`input[name="choose-q${i+1}"]`).forEach(r => r.setAttribute("disabled", "true"));
+
+          feedback.className = isCorrect 
+            ? "text-xs p-3 rounded mt-2 bg-emerald-50 text-emerald-900 border border-emerald-200"
+            : "text-xs p-3 rounded mt-2 bg-red-50 text-red-900 border border-red-200";
+
+          const textRationale = CHOOSE_DATA[i+9].rationales[userAns];
+          feedback.innerHTML = isCorrect
+            ? `<i class="fa-solid fa-circle-check mr-2 text-emerald-600"></i><strong>Correct:</strong> ${textRationale}`
+            : `<i class="fa-solid fa-circle-xmark mr-2 text-red-600"></i><strong>Incorrect selection:</strong> ${textRationale}`;
+          
+          feedback.classList.remove("hidden");
+        }
+        document.getElementById("check-choose-btn").setAttribute("disabled", "true");
+        document.getElementById("check-choose-btn").className = "bg-gray-200 text-gray-400 font-bold py-1.5 px-4 rounded text-xs cursor-not-allowed";
+      }
+
+      // Restore Repair Set
+      if (state.practiceRepairChecked) {
+        const repairIds = [15, 16, 17];
+        for (let i = 0; i < 3; i++) {
+          const input = document.getElementById(`repair-q${i+1}`);
+          const feedback = document.getElementById(`repair-q${i+1}-feedback`);
+          const userText = state.practiceRepairAnswers[i];
+          const isCorrect = REPAIR_DATA[repairIds[i]].accepted.some(regex => regex.test(userText));
+          
+          input.value = userText;
+          input.setAttribute("disabled", "true");
+          
+          feedback.className = isCorrect
+            ? "text-xs p-3 rounded mt-2 bg-emerald-50 text-emerald-900 border border-emerald-200"
+            : "text-xs p-3 rounded mt-2 bg-red-50 text-red-900 border border-red-200";
+
+          feedback.innerHTML = isCorrect
+            ? `<i class="fa-solid fa-circle-check mr-2 text-emerald-600"></i><strong>Correct:</strong> Your rewrite matches our structural models. <br><span class="block mt-1 text-[10px] text-slate-500">Model answer: "${REPAIR_DATA[repairIds[i]].model}"</span>`
+            : `<i class="fa-solid fa-circle-xmark mr-2 text-red-600"></i><strong>Check structure:</strong> Your rewrite does not match our validated Band 7.0 structural checks. Please verify against this model: <br><strong class="block mt-1 text-slate-800 font-bold">"${REPAIR_DATA[repairIds[i]].model}"</strong>`;
+          
+          feedback.classList.remove("hidden");
+        }
+        document.getElementById("check-repair-btn").setAttribute("disabled", "true");
+        document.getElementById("check-repair-btn").className = "bg-gray-200 text-gray-400 font-bold py-1.5 px-4 rounded text-xs cursor-not-allowed";
+      }
+
+      // Restore Produce Set
+      if (state.practiceProduceChecked) {
+        const produceIds = [18, 19, 20];
+        for (let i = 0; i < 3; i++) {
+          const input = document.getElementById(`produce-q${i+1}`);
+          const feedback = document.getElementById(`produce-q${i+1}-feedback`);
+          const userText = state.practiceProduceAnswers[i];
+          const isCorrect = PRODUCE_DATA[produceIds[i]].accepted.some(regex => regex.test(userText));
+          
+          input.value = userText;
+          input.setAttribute("disabled", "true");
+          
+          feedback.className = isCorrect
+            ? "text-xs p-3 rounded mt-2 bg-emerald-50 text-emerald-900 border border-emerald-200"
+            : "text-xs p-3 rounded mt-2 bg-red-50 text-red-900 border border-red-200";
+
+          feedback.innerHTML = isCorrect
+            ? `<i class="fa-solid fa-circle-check mr-2 text-emerald-600"></i><strong>Correct:</strong> Synthesised successfully. <br><span class="block mt-1 text-[10px] text-slate-500">Suggested: "${PRODUCE_DATA[produceIds[i]].model}"</span>`
+            : `<i class="fa-solid fa-circle-xmark mr-2 text-red-600"></i><strong>Incorrect connection:</strong> Check coordinating punctuation/conjunction positions. <br><span class="block mt-1 text-slate-800 font-semibold">Model standard: "${PRODUCE_DATA[produceIds[i]].model}"</span>`;
+          
+          feedback.classList.remove("hidden");
+        }
+        document.getElementById("check-produce-btn").setAttribute("disabled", "true");
+        document.getElementById("check-produce-btn").className = "bg-gray-200 text-gray-400 font-bold py-1.5 px-4 rounded text-xs cursor-not-allowed";
+      }
+
+      // Restore Guided Construction Set
+      if (state.guidedConstructionChecked) {
+        for (let i = 1; i <= 3; i++) {
+          const uA = state.guidedConstructionAnswers[i-1];
+          document.getElementById(`construct-${i}-a`).value = uA[0];
+          document.getElementById(`construct-${i}-b`).value = uA[1];
+          document.getElementById(`construct-${i}-c`).value = uA[2];
+          
+          // Disable
+          document.getElementById(`construct-${i}-a`).setAttribute("disabled", "true");
+          document.getElementById(`construct-${i}-b`).setAttribute("disabled", "true");
+          document.getElementById(`construct-${i}-c`).setAttribute("disabled", "true");
+
+          updateConstructPreview(i);
+
+          const key = CONSTRUCT_DATA[i];
+          const isCorrect = (uA[0] === key.a && uA[1] === key.b && uA[2] === key.c);
+          const feedback = document.getElementById(`construct-${i}-feedback`);
+          
+          feedback.className = isCorrect
+            ? "text-xs p-3 rounded mt-2 bg-emerald-50 text-emerald-900 border border-emerald-200"
+            : "text-xs p-3 rounded mt-2 bg-red-50 text-red-900 border border-red-200";
+
+          feedback.innerHTML = isCorrect
+            ? `<i class="fa-solid fa-circle-check mr-2 text-emerald-600"></i><strong>Correct:</strong> Beautifully assembled! Your sentence has perfect boundaries. <br><span class="block mt-1 font-mono font-bold text-slate-800">"${key.model}"</span>`
+            : `<i class="fa-solid fa-circle-xmark mr-2 text-red-600"></i><strong>Incorrect Assembly:</strong> Target structure is: <br><strong class="block mt-1 font-mono text-slate-800">"${key.model}"</strong>`;
+          
+          feedback.classList.remove("hidden");
+        }
+        document.getElementById("check-construct-btn").setAttribute("disabled", "true");
+        document.getElementById("check-construct-btn").className = "bg-gray-200 text-gray-400 font-bold py-1.5 px-4 rounded text-xs cursor-not-allowed";
+      }
+
+      // Restore Apply Set
+      if (state.practiceApplyChecked) {
+        const applyIds = [24, 25];
+        for (let i = 0; i < 2; i++) {
+          const textarea = document.getElementById(`apply-q${i+1}`);
+          const feedback = document.getElementById(`apply-q${i+1}-feedback`);
+          const userText = state.practiceApplyAnswers[i].replace(/\s+/g, ' ');
+          const isCorrect = APPLY_DATA[applyIds[i]].accepted.some(regex => regex.test(userText));
+          
+          textarea.value = state.practiceApplyAnswers[i];
+          textarea.setAttribute("disabled", "true");
+          
+          feedback.className = isCorrect
+            ? "text-xs p-3 rounded mt-2 bg-emerald-50 text-emerald-900 border border-emerald-200"
+            : "text-xs p-3 rounded mt-2 bg-red-50 text-red-900 border border-red-200";
+
+          feedback.innerHTML = isCorrect
+            ? `<i class="fa-solid fa-circle-check mr-2 text-emerald-600"></i><strong>Correct:</strong> Paragraph repaired successfully. Excellent control of complex clauses.`
+            : `<i class="fa-solid fa-circle-xmark mr-2 text-red-600"></i><strong>Errors remained:</strong> Here is the Band 7.0 standard paragraph model: <br><strong class="block mt-1 text-slate-800 font-bold">"${APPLY_DATA[applyIds[i]].model}"</strong>`;
+          
+          feedback.classList.remove("hidden");
+        }
+        document.getElementById("check-apply-btn").setAttribute("disabled", "true");
+        document.getElementById("check-apply-btn").className = "bg-gray-200 text-gray-400 font-bold py-1.5 px-4 rounded text-xs cursor-not-allowed";
+      }
+
+      // Restore Exit Ticket Set
+      if (state.exitTicketChecked) {
+        const exitKeys = ["A", "B"];
+        for (let i = 0; i < 2; i++) {
+          const feedback = document.getElementById(`exit-q${i+1}-feedback`);
+          const userAns = state.exitTicketAnswers[i];
+          const correctAns = exitKeys[i];
+          const isCorrect = (userAns === correctAns);
+
+          const radio = document.querySelector(`input[name="exit-q${i+1}"][value="${userAns}"]`);
+          if (radio) radio.checked = true;
+
+          document.querySelectorAll(`input[name="exit-q${i+1}"]`).forEach(r => r.setAttribute("disabled", "true"));
+
+          feedback.className = isCorrect
+            ? "text-xs p-3 rounded mt-2 bg-emerald-50 text-emerald-900 border border-emerald-200"
+            : "text-xs p-3 rounded mt-2 bg-red-50 text-red-900 border border-red-200";
+
+          const textRationale = EXIT_TICKET_DATA[i+27].rationales[userAns];
+          feedback.innerHTML = isCorrect
+            ? `<i class="fa-solid fa-circle-check mr-2 text-emerald-600"></i><strong>Correct:</strong> ${textRationale}`
+            : `<i class="fa-solid fa-circle-xmark mr-2 text-red-600"></i><strong>Incorrect:</strong> ${textRationale}`;
+          
+          feedback.classList.remove("hidden");
+        }
+        document.getElementById("submit-exit-btn").setAttribute("disabled", "true");
+        document.getElementById("submit-exit-btn").className = "bg-gray-200 text-gray-400 font-bold py-1.5 px-4 rounded text-xs cursor-not-allowed";
+      }
+
+      // Restore Transfer Task
+      document.getElementById("transfer-input").value = state.transferText;
+      updateWordCount(state.transferText);
+      for (let i = 1; i <= 4; i++) {
+        document.getElementById(`chk-transfer-${i}`).checked = state.transferCheckedList[i-1];
+      }
+      if (state.transferSubmitted) {
+        processTransferTask();
+      }
+
+      updateDashboard();
+    }
+
+    function resetLab() {
+      if (confirm("Are you sure you want to reset all your progress, answers, and diagnostic scores?")) {
+        localStorage.removeItem('ielts_grammar_lab_state_boundaries');
+        window.location.reload();
+      }
+    }
+
+    // Helper for visual alerts without using native blocker dialogs
+    function alertCustom(message) {
+      const banner = document.createElement("div");
+      banner.className = "fixed top-5 left-1/2 transform -translate-x-1/2 bg-ielts-navy text-white text-xs font-bold py-3 px-6 rounded-lg shadow-lg z-50 flex items-center gap-2 border border-ielts-blue animate-bounce";
+      banner.innerHTML = `<i class="fa-solid fa-circle-exclamation text-ielts-amber"></i> <span>${message}</span>`;
+      document.body.appendChild(banner);
+      setTimeout(() => {
+        banner.remove();
+      }, 3500);
+    }
+  </script>
+</body>
+</html>
